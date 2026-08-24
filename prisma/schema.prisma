@@ -1,0 +1,193 @@
+// Car Body Doc - database schema
+// Docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  CUSTOMER
+}
+
+enum ServiceType {
+  SMASH_REPAIRS
+  SPRAY_PAINT
+  BUFF_POLISH
+  DENT_SCRATCH
+  OTHER
+}
+
+enum QuoteStatus {
+  NEW
+  REVIEWING
+  QUOTED
+  ACCEPTED
+  DECLINED
+  CLOSED
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum TimeSlot {
+  MORNING
+  AFTERNOON
+}
+
+enum ContactMethod {
+  PHONE
+  SMS
+  EMAIL
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  phone        String?
+  passwordHash String
+  role         Role     @default(CUSTOMER)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  quoteRequests QuoteRequest[]
+  bookings      Booking[]
+
+  @@index([role])
+}
+
+model QuoteRequest {
+  id        String @id @default(cuid())
+  reference String @unique
+
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  // Customer
+  name          String
+  email         String
+  phone         String
+  suburb        String
+  postcode      String
+  contactMethod ContactMethod @default(PHONE)
+
+  // Vehicle
+  vehicleMake   String
+  vehicleModel  String
+  vehicleYear   String
+  vehicleColour String
+  paintCode     String?
+
+  // Job
+  serviceType    ServiceType
+  description    String
+  insuranceClaim Boolean     @default(false)
+
+  // Workflow
+  status            QuoteStatus @default(NEW)
+  quotedAmountCents Int?
+  quoteMessage      String?
+  quotedAt          DateTime?
+  adminNotes        String?
+
+  photos  QuotePhoto[]
+  booking Booking?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status, createdAt])
+  @@index([email])
+}
+
+model QuotePhoto {
+  id             String       @id @default(cuid())
+  quoteRequestId String
+  quoteRequest   QuoteRequest @relation(fields: [quoteRequestId], references: [id], onDelete: Cascade)
+  url            String
+  filename       String
+  createdAt      DateTime     @default(now())
+
+  @@index([quoteRequestId])
+}
+
+model Booking {
+  id        String @id @default(cuid())
+  reference String @unique
+
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  quoteRequestId String?       @unique
+  quoteRequest   QuoteRequest? @relation(fields: [quoteRequestId], references: [id], onDelete: SetNull)
+
+  // Customer
+  name  String
+  email String
+  phone String
+
+  // Where we come to
+  addressLine String
+  suburb      String
+  postcode    String
+
+  // Vehicle
+  vehicleMake   String
+  vehicleModel  String
+  vehicleYear   String
+  vehicleColour String
+
+  // Job
+  serviceType ServiceType
+  notes       String?
+
+  preferredDate DateTime      @db.Date
+  timeSlot      TimeSlot
+
+  status      BookingStatus @default(PENDING)
+  priceCents  Int?
+  adminNotes  String?
+  completedAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status, preferredDate])
+  @@index([preferredDate])
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String
+  handled   Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([handled, createdAt])
+}
+
+model BlockedDate {
+  id     String   @id @default(cuid())
+  date   DateTime @unique @db.Date
+  reason String?
+}
+
+model Setting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+}

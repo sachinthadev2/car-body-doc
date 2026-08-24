@@ -1,0 +1,25 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500' width='800' height='500'>
+  <defs>
+    <linearGradient id='bg' x1='0' y1='0' x2='0' y2='1'>
+      <stop offset='0' stop-color='#141414'/><stop offset='1' stop-color='#050505'/>
+    </linearGradient>
+    <linearGradient id='car' x1='0' y1='0' x2='0' y2='1'>
+      <stop offset='0' stop-color='#3a3a3a'/><stop offset='1' stop-color='#2a2a2a'/>
+    </linearGradient>
+  </defs>
+  <rect width='800' height='500' fill='url(#bg)'/>
+  <rect x='0' y='0' width='800' height='6' fill='#e11414'/>
+  <g transform='translate(60,90)'>
+    <path d='M40 250 q10 -70 60 -95 l70 -60 q30 -22 80 -22 h140 q46 0 78 26 l86 66 q60 12 86 46 q22 28 18 60 h-30 a48 48 0 0 0 -96 0 h-234 a48 48 0 0 0 -96 0 h-40 q-24 0 -22 -21z' fill='url(#car)' stroke='#000' stroke-width='2'/>
+    <path d='M170 155 q26 -22 66 -22 h130 q40 0 68 24 l50 42 h-364z' fill='#0d0d0d' opacity='.85'/>
+    <circle cx='180' cy='300' r='46' fill='#0a0a0a' stroke='#2c2c2c' stroke-width='8'/>
+    <circle cx='510' cy='300' r='46' fill='#0a0a0a' stroke='#2c2c2c' stroke-width='8'/>
+    
+  <path d='M210 300 q60 -28 130 -10 t120 26' stroke='#8a8a8a' stroke-width='5' fill='none' stroke-linecap='round' opacity='.9'/>
+  <path d='M250 330 q70 -18 150 6' stroke='#6a6a6a' stroke-width='3' fill='none' stroke-linecap='round'/>
+  <ellipse cx='520' cy='318' rx='48' ry='26' fill='#000' opacity='.35'/>
+  </g>
+  <rect x='0' y='430' width='800' height='70' fill='#000' opacity='.75'/>
+  <text x='32' y='474' font-family='Arial, Helvetica, sans-serif' font-size='24' fill='#ffffff'>Front guard - faded clear coat</text>
+  <text x='768' y='474' text-anchor='end' font-family='Arial, Helvetica, sans-serif' font-size='18' font-weight='bold' fill='#e11414'>BEFORE</text>
+</svg>

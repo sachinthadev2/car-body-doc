@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #050505;
+  --color-panel: #0d0d0d;
+  --color-panel-2: #141414;
+  --color-hairline: #232323;
+
+  --color-brand-50: #fff1f1;
+  --color-brand-200: #ffc9c9;
+  --color-brand-400: #f45050;
+  --color-brand-500: #e11414;
+  --color-brand-600: #c30f0f;
+  --color-brand-700: #9d0b0b;
+
+  --font-display: var(--font-display), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: #e8e8e8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Section heading treatment: condensed, uppercase, tight */
+.display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+  font-weight: 700;
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-brand-500);
+}
+
+/* Thin red rule used under headings */
+.rule::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin-top: 1rem;
+  background: var(--color-brand-500);
+}
+
+.rule-center::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Subtle carbon texture for dark sections */
+.carbon {
+  background-image:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.025) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(255, 255, 255, 0.025) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(255, 255, 255, 0.025) 25%, transparent 25%),
+    linear-gradient(315deg, rgba(255, 255, 255, 0.025) 25%, transparent 25%);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 0, 4px -4px, 0 4px;
+}
+
+/* Angled red accent stripes */
+.stripes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--color-brand-500) 0 8px,
+    transparent 8px 20px
+  );
+}
+
+.hero-vignette {
+  background:
+    radial-gradient(120% 90% at 80% 10%, rgba(225, 20, 20, 0.22), transparent 55%),
+    linear-gradient(to bottom, rgba(5, 5, 5, 0.55), rgba(5, 5, 5, 0.92) 65%, var(--color-ink));
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

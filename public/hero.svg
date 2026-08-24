@@ -1,0 +1,41 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000' width='1600' height='1000'>
+<defs>
+ <linearGradient id='sky' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#1a1a1e'/><stop offset='1' stop-color='#070707'/></linearGradient>
+ <linearGradient id='trailer' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#1d1d1d'/><stop offset='1' stop-color='#0b0b0b'/></linearGradient>
+ <radialGradient id='glow' cx='.7' cy='.3' r='.6'><stop offset='0' stop-color='#e11414' stop-opacity='.35'/><stop offset='1' stop-color='#e11414' stop-opacity='0'/></radialGradient>
+</defs>
+<rect width='1600' height='1000' fill='url(#sky)'/>
+<rect width='1600' height='1000' fill='url(#glow)'/>
+<g opacity='.25'>
+  <rect x='0' y='560' width='1600' height='440' fill='#0d0d0d'/>
+  <path d='M0 560 H1600' stroke='#2a2a2a' stroke-width='2'/>
+</g>
+<!-- trailer body -->
+<g transform='translate(260,300)'>
+  <rect x='0' y='60' width='980' height='330' rx='6' fill='url(#trailer)' stroke='#000' stroke-width='3'/>
+  <rect x='0' y='60' width='980' height='330' rx='6' fill='none' stroke='#2b2b2b' stroke-width='2'/>
+  <!-- awning -->
+  <path d='M-30 60 L1010 10 L1010 46 L-30 96 Z' fill='#121212' stroke='#2b2b2b' stroke-width='2'/>
+  <!-- signage text -->
+  <text x='490' y='168' text-anchor='middle' font-family='Arial, Helvetica, sans-serif' font-size='72' font-weight='bold' fill='#ffffff'>Mobile Smash Repairs</text>
+  <text x='490' y='240' text-anchor='middle' font-family='Arial, Helvetica, sans-serif' font-size='60' font-weight='bold' fill='#ffffff' letter-spacing='4'>WE COME TO YOU</text>
+  <text x='490' y='318' text-anchor='middle' font-family='Arial, Helvetica, sans-serif' font-size='66' font-weight='bold' fill='#ffffff' letter-spacing='2'>0423 485 813</text>
+  <text x='490' y='368' text-anchor='middle' font-family='Arial, Helvetica, sans-serif' font-size='26' font-weight='bold' fill='#cfcfcf' letter-spacing='1'>SMASH REPAIRS &#183; SPRAY PAINT &#183; BUFF AND POLISH &#183; DENT &amp; SCRATCH REMOVAL</text>
+  <!-- red cars -->
+  <g fill='#e11414'>
+    <path d='M60 300 q14 -34 56 -40 l40 -26 q20 -12 46 -12 h60 q28 0 46 14 l44 34 q34 6 44 26 h-336z'/>
+    <circle cx='140' cy='306' r='18' fill='#111'/><circle cx='320' cy='306' r='18' fill='#111'/>
+  </g>
+  <g fill='#e11414' transform='translate(600,0)'>
+    <path d='M60 300 q14 -34 56 -40 l40 -26 q20 -12 46 -12 h60 q28 0 46 14 l44 34 q34 6 44 26 h-336z'/>
+    <circle cx='140' cy='306' r='18' fill='#111'/><circle cx='320' cy='306' r='18' fill='#111'/>
+  </g>
+  <!-- wheel -->
+  <circle cx='420' cy='430' r='58' fill='#0a0a0a' stroke='#242424' stroke-width='10'/>
+  <circle cx='420' cy='430' r='24' fill='#1c1c1c'/>
+  <rect x='0' y='390' width='980' height='26' fill='#080808'/>
+</g>
+<rect x='0' y='0' width='1600' height='10' fill='#e11414'/>
+<text x='80' y='920' font-family='Arial, Helvetica, sans-serif' font-size='30' fill='#6a6a6a'>Placeholder artwork</text>
+<text x='80' y='960' font-family='Arial, Helvetica, sans-serif' font-size='22' fill='#4a4a4a'>Replace with your real trailer photo at public/hero.jpg and update heroImage in src/lib/site.ts</text>
+</svg>
