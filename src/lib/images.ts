@@ -60,18 +60,18 @@ export const photos = {
 } as const;
 
 export const galleryPhotos = {
-  bumperBefore: u("photo-1745234176689-7d1673f76df6", 1200),
-  bumperAfter: u("photo-1608412217889-1ec8ac1d5878", 1200),
-  guardBefore: u("photo-1660605674048-a260f510fa28", 1200),
-  guardAfter: u("photo-1630933047075-984cbb6e9cf6", 1200),
-  scratchBefore: u("photo-1729554981212-6557ef8e4835", 1200),
-  scratchAfter: u("photo-1580089469671-f371f7678b34", 1200),
-  polishBefore: u("photo-1550565076-b2371ea1a324", 1200),
-  polishAfter: u("photo-1618642542397-ef97a739f1d7", 1200),
-  dentBefore: u("photo-1673638628559-4ee003847183", 1200),
-  dentAfter: u("photo-1621441916074-96050a7b1592", 1200),
-  collisionBefore: u("photo-1707510844729-c0a09348f54f", 1200),
-  collisionAfter: u("photo-1663589714502-80bf7a6579c2", 1200),
+  bumperBefore: "/gallery/bumper-before.webp",
+  bumperAfter: "/gallery/bumper-after.webp",
+  guardBefore: "/gallery/guard-before.webp",
+  guardAfter: "/gallery/guard-after.webp",
+  scratchBefore: "/gallery/scratch-before.webp",
+  scratchAfter: "/gallery/scratch-after.webp",
+  polishBefore: "/gallery/polish-before.webp",
+  polishAfter: "/gallery/polish-after.webp",
+  dentBefore: "/gallery/dent-before.webp",
+  dentAfter: "/gallery/dent-after.webp",
+  collisionBefore: "/gallery/collision-before.webp",
+  collisionAfter: "/gallery/collision-after.webp",
 } as const;
 
 /**
