@@ -47,7 +47,7 @@ export function HeroSlider() {
 
   return (
     <section
-      className="relative isolate flex h-[calc(100dvh-var(--header-h)-1px)] min-h-[540px] items-center overflow-hidden"
+      className="relative isolate flex min-h-[calc(100dvh-var(--header-h)-var(--callbar-h)-1px)] flex-col justify-center overflow-hidden pb-[calc(1.5rem+var(--callbar-h))] lg:pb-0"
       aria-roledescription="carousel"
       aria-label="Car Body Doc services"
       onMouseEnter={() => setPaused(true)}
@@ -86,7 +86,7 @@ export function HeroSlider() {
         their links can't be tabbed to, and only the active headline is an <h1>
         so the page still has exactly one.
       */}
-      <div className="relative mx-auto w-full max-w-7xl px-4 pb-[clamp(3.25rem,9vh,6.5rem)] pt-2 sm:px-6 sm:pt-4 lg:px-8">
+      <div className="relative mx-auto w-full max-w-7xl px-4 pt-6 sm:px-6 lg:px-8 lg:pb-[clamp(5.25rem,10vh,6.5rem)]">
         <div className="grid">
           {heroSlides.map((item, i) => {
             const active = i === index;
@@ -152,7 +152,7 @@ export function HeroSlider() {
                   </a>
                 </div>
 
-                <ul {...anim(600)} className={cn(anim(0).className, "mt-7 flex flex-wrap gap-x-6 gap-y-2.5")}>
+                <ul {...anim(600)} className={cn(anim(0).className, "hero-points mt-7 flex flex-wrap gap-x-6 gap-y-2.5")}>
                   {item.points.map((point) => (
                     <li key={point} className="flex items-center gap-2 text-sm text-white/65">
                       <CheckCircle2 className="size-4 text-brand-500" />
@@ -166,10 +166,16 @@ export function HeroSlider() {
         </div>
       </div>
 
-      {/* ------------------------------------------------------------ Controls */}
+      {/* ------------------------------------------------------------ Controls
+        On mobile these sit in normal flow underneath the copy. They used to be
+        pinned to the hero's bottom edge, but the call bar is `fixed` - it
+        covers the bottom of the SCREEN, not of the hero - so pinned controls
+        ended up underneath it and on top of the trust points. From lg up there
+        is no call bar, so they pin to the bottom as before.
+      */}
       {heroSlides.length > 1 && (
         <>
-          <div className="absolute inset-x-0 bottom-8 z-10 mx-auto flex max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8">
+          <div className="relative z-10 mx-auto mt-8 flex w-full max-w-7xl items-center gap-4 px-4 sm:px-6 lg:absolute lg:inset-x-0 lg:bottom-8 lg:mt-0 lg:px-8">
             <div className="flex items-center gap-2.5">
               {heroSlides.map((item, i) => (
                 <button

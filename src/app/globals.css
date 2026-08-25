@@ -23,6 +23,15 @@
   /* Header content height. The home hero subtracts this PLUS the header's 1px
      bottom border to fill exactly one screen with no leftover scroll. */
   --header-h: 84px;
+  /* Fixed mobile call bar at the bottom. Hidden from lg up, so 0 there.
+     The home hero subtracts it so its controls are never underneath it. */
+  --callbar-h: 60px;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --callbar-h: 0px;
+  }
 }
 
 html {
@@ -134,6 +143,12 @@ html.lenis body {
 }
 .lenis.lenis-stopped {
   overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .hero-points {
+    display: none;
+  }
 }
 
 /* ==========================================================================
