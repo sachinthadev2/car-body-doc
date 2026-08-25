@@ -56,10 +56,10 @@ export function BeforeAfter({
         dragging.current = false;
       }}
     >
-      <Image src={after} alt={`${alt} - after repair`} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+      <Image src={after} alt={`${alt} - after repair`} fill sizes="(max-width: 768px) 100vw, 50vw" className="pointer-events-none object-cover" draggable={false} />
 
-      <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}>
-        <Image src={before} alt={`${alt} - before repair`} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+      <div className="pointer-events-none absolute inset-0" style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}>
+        <Image src={before} alt={`${alt} - before repair`} fill sizes="(max-width: 768px) 100vw, 50vw" className="pointer-events-none object-cover" draggable={false} />
       </div>
 
       <span className="pointer-events-none absolute left-3 top-3 bg-black/75 px-2.5 py-1 font-display text-[0.72rem] uppercase tracking-widest text-brand-400 backdrop-blur-sm">
