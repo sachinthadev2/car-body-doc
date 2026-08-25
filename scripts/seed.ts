@@ -1,14 +1,16 @@
 import "dotenv/config";
 
 import bcrypt from "bcryptjs";
-import { PrismaPg } from "@prisma/adapter-pg";
-
+import { PrismaMariaDb } from "@prisma/adapter-mariadb";
 import { PrismaClient } from "../src/generated/prisma/client";
 
 const connectionString = process.env.DATABASE_URL;
 if (!connectionString) throw new Error("DATABASE_URL is not set");
 
-const prisma = new PrismaClient({ adapter: new PrismaPg({ connectionString }) });
+let adapterString = connectionString.replace(/^mysql:\/\//, "mariadb://");
+adapterString += adapterString.includes("?") ? "&connectTimeout=10000" : "?connectTimeout=10000";
+
+const prisma = new PrismaClient({ adapter: new PrismaMariaDb(adapterString) });
 
 async function main() {
   const email = (process.env.ADMIN_EMAIL ?? "admin@carbodydoc.com.au").toLowerCase();

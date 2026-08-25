@@ -1,4 +1,4 @@
-import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaMariaDb } from "@prisma/adapter-mariadb";
 import { PrismaClient } from "@/generated/prisma/client";
 
 const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
@@ -8,7 +8,11 @@ function createPrismaClient() {
   if (!connectionString) {
     throw new Error("DATABASE_URL is not set. Copy .env.example to .env and fill it in.");
   }
-  return new PrismaClient({ adapter: new PrismaPg({ connectionString }) });
+  
+  let adapterString = connectionString.replace(/^mysql:\/\//, "mariadb://");
+  adapterString += adapterString.includes("?") ? "&connectTimeout=10000" : "?connectTimeout=10000";
+
+  return new PrismaClient({ adapter: new PrismaMariaDb(adapterString) });
 }
 
 export const prisma = globalForPrisma.prisma ?? createPrismaClient();

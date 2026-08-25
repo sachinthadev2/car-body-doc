@@ -22,11 +22,11 @@ export default async function AdminQuotesPage({
       ...(q
         ? {
             OR: [
-              { reference: { contains: q, mode: "insensitive" as const } },
-              { name: { contains: q, mode: "insensitive" as const } },
-              { email: { contains: q, mode: "insensitive" as const } },
+              { reference: { contains: q } },
+              { name: { contains: q } },
+              { email: { contains: q } },
               { phone: { contains: q } },
-              { suburb: { contains: q, mode: "insensitive" as const } },
+              { suburb: { contains: q } },
             ],
           }
         : {}),

@@ -12,8 +12,8 @@ export default async function AdminCustomersPage({ searchParams }: { searchParam
       ...(q
         ? {
             OR: [
-              { name: { contains: q, mode: "insensitive" as const } },
-              { email: { contains: q, mode: "insensitive" as const } },
+              { name: { contains: q } },
+              { email: { contains: q } },
               { phone: { contains: q } },
             ],
           }
