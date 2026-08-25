@@ -61,7 +61,7 @@ export default async function AdminBookingsPage({
 
       <div className="mt-6 overflow-x-auto border border-hairline">
         <table className="w-full min-w-[900px] text-left text-sm">
-          <thead className="bg-panel-2 text-[11px] uppercase tracking-widest text-white/40">
+          <thead className="bg-panel-2 text-[0.72rem] uppercase tracking-widest text-white/40">
             <tr>
               <th className="px-4 py-3">Ref</th>
               <th className="px-4 py-3">Date</th>
@@ -83,17 +83,17 @@ export default async function AdminBookingsPage({
                 </td>
                 <td className="px-4 py-3.5 text-white/75">
                   {formatDateOnly(booking.preferredDate)}
-                  <span className="block text-[12px] text-white/35">{TIME_SLOT_LABELS[booking.timeSlot]}</span>
+                  <span className="block text-xs text-white/35">{TIME_SLOT_LABELS[booking.timeSlot]}</span>
                 </td>
                 <td className="px-4 py-3.5 text-white/75">
                   {booking.name}
-                  <a href={`tel:${booking.phone}`} className="block text-[12px] text-white/35 hover:text-white">
+                  <a href={`tel:${booking.phone}`} className="block text-xs text-white/35 hover:text-white">
                     {booking.phone}
                   </a>
                 </td>
                 <td className="px-4 py-3.5 text-white/50">
                   {booking.addressLine}
-                  <span className="block text-[12px] text-white/35">
+                  <span className="block text-xs text-white/35">
                     {booking.suburb} {booking.postcode}
                   </span>
                 </td>
@@ -128,7 +128,7 @@ function Chip({ href, label, active }: { href: string; label: string; active: bo
     <Link
       href={href}
       className={cn(
-        "border px-3.5 py-1.5 font-display text-[13px] uppercase tracking-wide transition-colors",
+        "border px-3.5 py-1.5 font-display text-sm uppercase tracking-wide transition-colors",
         active ? "border-brand-500 bg-brand-500 text-white" : "border-hairline text-white/55 hover:border-white/40 hover:text-white",
       )}
     >

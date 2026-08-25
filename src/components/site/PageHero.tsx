@@ -59,7 +59,7 @@ export function PageHero({
           <nav
             aria-label="Breadcrumb"
             className={cn(
-              "anim-in mb-5 flex flex-wrap items-center gap-2 text-[13px] text-white/45",
+              "anim-in mb-5 flex flex-wrap items-center gap-2 text-sm text-white/45",
               align === "center" && "justify-center",
             )}
           >
@@ -96,7 +96,7 @@ export function PageHero({
         {lead ? (
           <p
             className={cn(
-              "anim-in mt-6 max-w-2xl text-[17px] leading-relaxed text-white/65",
+              "anim-in mt-6 max-w-2xl text-lg leading-relaxed text-white/65",
               align === "center" && "mx-auto",
             )}
             style={{ animationDelay: "240ms" }}

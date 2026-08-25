@@ -76,7 +76,7 @@ export default async function AdminDashboard() {
         <div className="flex items-center gap-2 border border-hairline bg-panel px-4 py-2.5">
           <DollarSign className="size-4 text-brand-500" />
           <div>
-            <p className="text-[11px] uppercase tracking-widest text-white/35">Completed this week</p>
+            <p className="text-[0.72rem] uppercase tracking-widest text-white/35">Completed this week</p>
             <p className="font-display text-lg text-white">{formatMoney(completedValue._sum.priceCents ?? 0)}</p>
           </div>
         </div>
@@ -93,7 +93,7 @@ export default async function AdminDashboard() {
               <stat.icon className="size-5 text-brand-500" />
               <span className="display text-4xl text-white">{stat.value}</span>
             </div>
-            <p className="mt-3 text-[13px] text-white/45 group-hover:text-white/70">{stat.label}</p>
+            <p className="mt-3 text-sm text-white/45 group-hover:text-white/70">{stat.label}</p>
           </Link>
         ))}
       </div>
@@ -103,14 +103,14 @@ export default async function AdminDashboard() {
         <section>
           <div className="flex items-center justify-between">
             <h2 className="display text-xl text-white">Latest quote requests</h2>
-            <Link href="/admin/quotes" className="text-[13px] text-brand-500 hover:text-brand-400">
+            <Link href="/admin/quotes" className="text-sm text-brand-500 hover:text-brand-400">
               View all &rarr;
             </Link>
           </div>
 
           <div className="mt-4 overflow-x-auto border border-hairline">
             <table className="w-full min-w-[640px] text-left text-sm">
-              <thead className="bg-panel-2 text-[11px] uppercase tracking-widest text-white/40">
+              <thead className="bg-panel-2 text-[0.72rem] uppercase tracking-widest text-white/40">
                 <tr>
                   <th className="px-4 py-3">Ref</th>
                   <th className="px-4 py-3">Customer</th>
@@ -129,7 +129,7 @@ export default async function AdminDashboard() {
                     </td>
                     <td className="px-4 py-3 text-white/75">
                       {quote.name}
-                      <span className="block text-[12px] text-white/35">{quote.suburb}</span>
+                      <span className="block text-xs text-white/35">{quote.suburb}</span>
                     </td>
                     <td className="px-4 py-3 text-white/55">{SERVICE_LABELS[quote.serviceType]}</td>
                     <td className="px-4 py-3 text-white/45">{formatDateTime(quote.createdAt)}</td>
@@ -163,13 +163,13 @@ export default async function AdminDashboard() {
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <p className="font-display text-base uppercase text-white">{job.name}</p>
-                    <p className="text-[13px] text-white/45">
+                    <p className="text-sm text-white/45">
                       {job.addressLine}, {job.suburb}
                     </p>
                   </div>
                   <StatusBadge status={job.status} />
                 </div>
-                <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-hairline pt-3 text-[12px] text-white/45">
+                <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-hairline pt-3 text-xs text-white/45">
                   <span className="text-brand-400">{TIME_SLOT_LABELS[job.timeSlot]}</span>
                   <span>{SERVICE_LABELS[job.serviceType]}</span>
                   <a href={`tel:${job.phone}`} className="hover:text-white">

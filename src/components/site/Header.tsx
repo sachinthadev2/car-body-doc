@@ -67,7 +67,7 @@ export function Header({ user }: { user: { name: string; role: string } | null }
               key={item.href}
               href={item.href}
               className={cn(
-                "font-display text-[15px] uppercase tracking-wide transition-colors",
+                "font-display text-base uppercase tracking-wide transition-colors",
                 "link-draw",
                 pathname.startsWith(item.href) ? "text-brand-500" : "text-white/75 hover:text-white",
               )}

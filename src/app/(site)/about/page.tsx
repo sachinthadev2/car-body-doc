@@ -64,7 +64,7 @@ export default function AboutPage() {
 
           <Reveal direction="left" delay={120}>
             <SectionHeading eyebrow="Our story" title="Built for the jobs panel shops do not want" />
-            <div className="mt-8 space-y-5 text-[16px] leading-relaxed text-white/60">
+            <div className="mt-8 space-y-5 text-[1.05rem] leading-relaxed text-white/60">
               <p>
                 Most damage on the road is not a write-off. It is a scraped bumper, a trolley dent, a key mark down the
                 door, a guard that has lost its clear coat. Real damage, worth fixing - but not worth losing your car for
@@ -86,12 +86,12 @@ export default function AboutPage() {
               <div className="hover-lift border border-hairline bg-panel p-5">
                 <Truck className="size-6 text-brand-500" />
                 <p className="display mt-3 text-2xl text-white">100% mobile</p>
-                <p className="text-[13px] text-white/45">No workshop, no drop-off, no towing</p>
+                <p className="text-sm text-white/45">No workshop, no drop-off, no towing</p>
               </div>
               <div className="hover-lift border border-hairline bg-panel p-5">
                 <Wrench className="size-6 text-brand-500" />
                 <p className="display mt-3 text-2xl text-white">Trade qualified</p>
-                <p className="text-[13px] text-white/45">Proper prep, proper paint, proper finish</p>
+                <p className="text-sm text-white/45">Proper prep, proper paint, proper finish</p>
               </div>
             </div>
           </Reveal>
@@ -111,7 +111,7 @@ export default function AboutPage() {
           <ul className="grid gap-x-8 gap-y-3.5 sm:grid-cols-2">
             {kit.map((item, i) => (
               <Reveal key={item} delay={i * 60} direction="fade" as="li">
-                <span className="flex items-start gap-3 text-[15px] text-white/60">
+                <span className="flex items-start gap-3 text-base text-white/60">
                   <CheckCircle2 className="mt-0.5 size-4.5 shrink-0 text-brand-500" />
                   {item}
                 </span>
@@ -131,7 +131,7 @@ export default function AboutPage() {
               <div className="h-full bg-panel p-7 transition-colors duration-300 hover:bg-panel-2">
                 <CheckCircle2 className="size-5 text-brand-500" />
                 <h3 className="display mt-4 text-xl text-white">{item.title}</h3>
-                <p className="mt-2 text-[14px] leading-relaxed text-white/50">{item.detail}</p>
+                <p className="mt-2 text-[0.95rem] leading-relaxed text-white/50">{item.detail}</p>
               </div>
             </Reveal>
           ))}

@@ -40,7 +40,7 @@ export function SectionHeading({
       <h2 className={cn("display rule text-3xl text-white sm:text-4xl lg:text-[2.75rem]", align === "center" && "rule-center")}>
         {title}
       </h2>
-      {lead ? <p className="mt-6 text-[17px] leading-relaxed text-white/60">{lead}</p> : null}
+      {lead ? <p className="mt-6 text-lg leading-relaxed text-white/60">{lead}</p> : null}
     </div>
   );
 }

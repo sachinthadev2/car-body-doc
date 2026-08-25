@@ -26,7 +26,7 @@ export function CtaBand({
       <div className="relative mx-auto flex max-w-7xl flex-col items-start gap-9 px-4 py-16 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:py-20">
         <Reveal direction="right" className="max-w-2xl">
           <h2 className="display text-3xl text-white sm:text-4xl lg:text-5xl">{title}</h2>
-          <p className="mt-4 text-[17px] leading-relaxed text-white/85">{lead}</p>
+          <p className="mt-4 text-lg leading-relaxed text-white/85">{lead}</p>
         </Reveal>
 
         <Reveal direction="left" delay={120} className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">

@@ -121,6 +121,19 @@ export const bookingUpdateSchema = z.object({
   notifyCustomer: z.boolean().default(false),
 });
 
+export const newsletterSchema = z.object({
+  email: z.email("Enter a valid email address"),
+});
+
+export const chatRequestSchema = z.object({
+  topic: z.string().trim().min(2, "Pick what you need help with").max(120),
+  name: z.string().trim().min(2, "Tell us your name").max(80),
+  phone,
+  email: z.email("Enter a valid email address").optional().or(z.literal("")),
+  suburb: z.string().trim().max(60).optional().or(z.literal("")),
+  message: z.string().trim().max(1000).optional().or(z.literal("")),
+});
+
 export type FormState = {
   ok: boolean;
   message?: string;

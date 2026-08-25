@@ -44,7 +44,7 @@ export function BookingForm({
         <h2 className="display mt-6 text-3xl text-white">Booking requested</h2>
         <p className="mx-auto mt-3 max-w-md text-white/60">{state.message}</p>
         <p className="mt-6 inline-block border border-hairline bg-panel-2 px-5 py-3">
-          <span className="block text-[11px] uppercase tracking-widest text-white/40">Your reference</span>
+          <span className="block text-[0.72rem] uppercase tracking-widest text-white/40">Your reference</span>
           <span className="font-display text-2xl text-brand-500">{state.reference}</span>
         </p>
         <p className="mt-6 text-sm text-white/50">

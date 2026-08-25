@@ -3,11 +3,11 @@ import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 const control =
-  "w-full rounded-sm border bg-panel-2 px-3.5 py-2.5 text-[15px] text-white placeholder:text-white/30 outline-none transition-colors focus:border-brand-500";
+  "w-full rounded-sm border bg-panel-2 px-3.5 py-2.5 text-base text-white placeholder:text-white/30 outline-none transition-colors focus:border-brand-500";
 
 export function Label({ htmlFor, children, hint }: { htmlFor?: string; children: ReactNode; hint?: string }) {
   return (
-    <label htmlFor={htmlFor} className="mb-1.5 block text-[13px] font-medium text-white/70">
+    <label htmlFor={htmlFor} className="mb-1.5 block text-sm font-medium text-white/70">
       {children}
       {hint ? <span className="ml-1.5 font-normal text-white/35">{hint}</span> : null}
     </label>
@@ -16,7 +16,7 @@ export function Label({ htmlFor, children, hint }: { htmlFor?: string; children:
 
 export function FieldError({ children }: { children?: string }) {
   if (!children) return null;
-  return <p className="mt-1.5 text-[13px] text-brand-400">{children}</p>;
+  return <p className="mt-1.5 text-sm text-brand-400">{children}</p>;
 }
 
 export function Field({
@@ -75,7 +75,7 @@ export function Select({ error, className, children, ...props }: ComponentProps<
 
 export function Checkbox({ label, ...props }: ComponentProps<"input"> & { label: ReactNode }) {
   return (
-    <label className="flex cursor-pointer items-start gap-3 text-[14px] text-white/75">
+    <label className="flex cursor-pointer items-start gap-3 text-[0.95rem] text-white/75">
       <input
         type="checkbox"
         className="mt-0.5 size-4 shrink-0 accent-[var(--color-brand-500)]"

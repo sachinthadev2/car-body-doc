@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 
 import { CtaBand } from "@/components/site/CtaBand";
 import { GalleryGrid } from "@/components/site/GalleryGrid";
+import { MasonryGallery } from "@/components/site/MasonryGallery";
 import { PageHero } from "@/components/site/PageHero";
-import { Section } from "@/components/site/Section";
+import { Reveal } from "@/components/site/Reveal";
+import { Section, SectionHeading } from "@/components/site/Section";
 import { photos } from "@/lib/images";
 
 export const metadata: Metadata = {
@@ -17,15 +19,29 @@ export default function GalleryPage() {
     <>
       <PageHero
         eyebrow="Our work"
-        title="Before &amp; after"
-        lead="Every one of these was repaired on site - in a driveway, a work car park or on the street. Drag the slider to see the difference."
+        title="The work, up close"
+        lead="Every one of these was done on site - in a driveway, a work car park or on the street. Tap any photo to open it full size."
         crumb={[{ href: "/gallery", label: "Gallery" }]}
         image={photos.paintDetail}
         imageAlt="Close up of a freshly finished panel"
       />
 
       <Section>
-        <GalleryGrid />
+        <MasonryGallery />
+      </Section>
+
+      <Section tone="panel">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Before &amp; after"
+            title="Drag to see the difference"
+            lead="Same panel, same day. Drag the red handle across each photo to compare the damage with the finished repair."
+            align="center"
+          />
+        </Reveal>
+        <div className="mt-12">
+          <GalleryGrid />
+        </div>
       </Section>
 
       <CtaBand

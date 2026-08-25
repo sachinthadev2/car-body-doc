@@ -89,7 +89,7 @@ export default async function AccountPage() {
           ) : (
             <div className="mt-6 overflow-x-auto border border-hairline">
               <table className="w-full min-w-[760px] text-left text-sm">
-                <thead className="bg-panel-2 text-[11px] uppercase tracking-widest text-white/40">
+                <thead className="bg-panel-2 text-[0.72rem] uppercase tracking-widest text-white/40">
                   <tr>
                     <th className="px-4 py-3">Reference</th>
                     <th className="px-4 py-3">Service</th>
@@ -138,7 +138,7 @@ export default async function AccountPage() {
           ) : (
             <div className="mt-6 overflow-x-auto border border-hairline">
               <table className="w-full min-w-[700px] text-left text-sm">
-                <thead className="bg-panel-2 text-[11px] uppercase tracking-widest text-white/40">
+                <thead className="bg-panel-2 text-[0.72rem] uppercase tracking-widest text-white/40">
                   <tr>
                     <th className="px-4 py-3">Reference</th>
                     <th className="px-4 py-3">Service</th>
@@ -155,7 +155,7 @@ export default async function AccountPage() {
                       <td className="px-4 py-3.5 text-white/70">{SERVICE_LABELS[booking.serviceType]}</td>
                       <td className="px-4 py-3.5 text-white/50">
                         {formatDateOnly(booking.preferredDate)}
-                        <span className="block text-[12px] text-white/35">{TIME_SLOT_LABELS[booking.timeSlot]}</span>
+                        <span className="block text-xs text-white/35">{TIME_SLOT_LABELS[booking.timeSlot]}</span>
                       </td>
                       <td className="px-4 py-3.5 text-white/50">{booking.suburb}</td>
                       <td className="px-4 py-3.5 font-medium text-white">{formatMoney(booking.priceCents)}</td>
@@ -175,15 +175,15 @@ export default async function AccountPage() {
           <h2 className="display text-2xl text-white">Your details</h2>
           <dl className="mt-6 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
             <div className="bg-panel p-5">
-              <dt className="text-[11px] uppercase tracking-widest text-white/40">Name</dt>
+              <dt className="text-[0.72rem] uppercase tracking-widest text-white/40">Name</dt>
               <dd className="mt-1 text-white">{user.name}</dd>
             </div>
             <div className="bg-panel p-5">
-              <dt className="text-[11px] uppercase tracking-widest text-white/40">Email</dt>
+              <dt className="text-[0.72rem] uppercase tracking-widest text-white/40">Email</dt>
               <dd className="mt-1 text-white">{user.email}</dd>
             </div>
             <div className="bg-panel p-5">
-              <dt className="text-[11px] uppercase tracking-widest text-white/40">Phone</dt>
+              <dt className="text-[0.72rem] uppercase tracking-widest text-white/40">Phone</dt>
               <dd className="mt-1 text-white">{user.phone ?? "Not supplied"}</dd>
             </div>
           </dl>

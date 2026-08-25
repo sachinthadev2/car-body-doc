@@ -36,7 +36,7 @@ export default async function AdminQuoteDetailPage({ params }: { params: Promise
             <h1 className="display text-3xl text-white sm:text-4xl">{quote.reference}</h1>
             <StatusBadge status={quote.status} />
             {quote.insuranceClaim && (
-              <span className="inline-flex items-center gap-1.5 rounded-sm bg-amber-500/15 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-amber-300 ring-1 ring-inset ring-amber-500/30">
+              <span className="inline-flex items-center gap-1.5 rounded-sm bg-amber-500/15 px-2.5 py-1 text-[0.72rem] font-semibold uppercase tracking-wider text-amber-300 ring-1 ring-inset ring-amber-500/30">
                 <ShieldAlert className="size-3.5" />
                 Insurance claim
               </span>
@@ -70,7 +70,7 @@ export default async function AdminQuoteDetailPage({ params }: { params: Promise
           {/* Damage */}
           <section className="border border-hairline bg-panel p-6">
             <h2 className="display text-xl text-white">The damage</h2>
-            <p className="mt-3 whitespace-pre-line text-[15px] leading-relaxed text-white/65">{quote.description}</p>
+            <p className="mt-3 whitespace-pre-line text-base leading-relaxed text-white/65">{quote.description}</p>
 
             {quote.photos.length > 0 ? (
               <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
@@ -136,7 +136,7 @@ export default async function AdminQuoteDetailPage({ params }: { params: Promise
                 <Calendar className="size-5 text-emerald-400" />
                 Booked
               </h2>
-              <p className="mt-2 text-[15px] text-white/70">
+              <p className="mt-2 text-base text-white/70">
                 {quote.booking.reference} &middot; {formatDateOnly(quote.booking.preferredDate)}{" "}
                 <Link href={`/admin/bookings/${quote.booking.id}`} className="ml-2 text-brand-400 hover:underline">
                   Open booking &rarr;
@@ -153,13 +153,13 @@ export default async function AdminQuoteDetailPage({ params }: { params: Promise
               {quote.quotedAmountCents ? "Update the quote" : "Send a quote"}
             </h2>
             {quote.quotedAmountCents ? (
-              <p className="mt-1 text-[13px] text-white/45">
+              <p className="mt-1 text-sm text-white/45">
                 Currently quoted {formatMoney(quote.quotedAmountCents)}
                 {quote.quotedAt ? ` on ${formatDate(quote.quotedAt)}` : ""}. Sending again emails the customer a new
                 price.
               </p>
             ) : (
-              <p className="mt-1 text-[13px] text-white/45">This emails the customer their price and a booking link.</p>
+              <p className="mt-1 text-sm text-white/45">This emails the customer their price and a booking link.</p>
             )}
             <div className="mt-5">
               <QuoteReplyForm quoteId={quote.id} defaultAmount={quote.quotedAmountCents} defaultMessage={quote.quoteMessage} />

@@ -62,16 +62,16 @@ export function BeforeAfter({
         <Image src={before} alt={`${alt} - before repair`} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
       </div>
 
-      <span className="pointer-events-none absolute left-3 top-3 bg-black/75 px-2.5 py-1 font-display text-[11px] uppercase tracking-widest text-brand-400 backdrop-blur-sm">
+      <span className="pointer-events-none absolute left-3 top-3 bg-black/75 px-2.5 py-1 font-display text-[0.72rem] uppercase tracking-widest text-brand-400 backdrop-blur-sm">
         Before
       </span>
-      <span className="pointer-events-none absolute right-3 top-3 bg-black/75 px-2.5 py-1 font-display text-[11px] uppercase tracking-widest text-emerald-400 backdrop-blur-sm">
+      <span className="pointer-events-none absolute right-3 top-3 bg-black/75 px-2.5 py-1 font-display text-[0.72rem] uppercase tracking-widest text-emerald-400 backdrop-blur-sm">
         After
       </span>
 
       {/* "drag me" nudge - disappears the moment they touch it */}
       {!touched && (
-        <span className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/70 px-3.5 py-1.5 text-[11px] uppercase tracking-widest text-white/80 backdrop-blur-sm transition-opacity duration-300">
+        <span className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/70 px-3.5 py-1.5 text-[0.72rem] uppercase tracking-widest text-white/80 backdrop-blur-sm transition-opacity duration-300">
           Drag to compare
         </span>
       )}

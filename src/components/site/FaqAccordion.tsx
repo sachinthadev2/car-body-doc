@@ -32,7 +32,7 @@ export function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
             </button>
             <div className={cn("grid transition-all duration-200", isOpen ? "grid-rows-[1fr] pb-6" : "grid-rows-[0fr]")}>
               <div className="overflow-hidden">
-                <p className="max-w-3xl text-[15px] leading-relaxed text-white/60">{item.a}</p>
+                <p className="max-w-3xl text-base leading-relaxed text-white/60">{item.a}</p>
               </div>
             </div>
           </div>

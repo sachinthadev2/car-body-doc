@@ -41,7 +41,7 @@ export default async function AdminMessagesPage() {
               <div className="flex flex-wrap items-center gap-2">
                 <a
                   href={`mailto:${message.email}`}
-                  className="inline-flex items-center gap-1.5 border border-hairline px-3 py-2 text-[13px] text-white/70 hover:border-brand-500 hover:text-white"
+                  className="inline-flex items-center gap-1.5 border border-hairline px-3 py-2 text-sm text-white/70 hover:border-brand-500 hover:text-white"
                 >
                   <Mail className="size-3.5 text-brand-500" />
                   {message.email}
@@ -49,7 +49,7 @@ export default async function AdminMessagesPage() {
                 {message.phone ? (
                   <a
                     href={`tel:${message.phone}`}
-                    className="inline-flex items-center gap-1.5 border border-hairline px-3 py-2 text-[13px] text-white/70 hover:border-brand-500 hover:text-white"
+                    className="inline-flex items-center gap-1.5 border border-hairline px-3 py-2 text-sm text-white/70 hover:border-brand-500 hover:text-white"
                   >
                     <Phone className="size-3.5 text-brand-500" />
                     {message.phone}
@@ -60,7 +60,7 @@ export default async function AdminMessagesPage() {
                   <button
                     type="submit"
                     className={cn(
-                      "inline-flex items-center gap-1.5 px-3 py-2 text-[13px] font-medium transition-colors",
+                      "inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium transition-colors",
                       message.handled
                         ? "border border-hairline text-white/50 hover:text-white"
                         : "bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30",
@@ -80,7 +80,7 @@ export default async function AdminMessagesPage() {
               </div>
             </div>
 
-            <p className="mt-4 whitespace-pre-line border-t border-hairline pt-4 text-[15px] leading-relaxed text-white/65">
+            <p className="mt-4 whitespace-pre-line border-t border-hairline pt-4 text-base leading-relaxed text-white/65">
               {message.message}
             </p>
           </article>

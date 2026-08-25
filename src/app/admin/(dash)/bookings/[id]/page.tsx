@@ -108,20 +108,20 @@ export default async function AdminBookingDetailPage({ params }: { params: Promi
                 <StickyNote className="size-5 text-brand-500" />
                 Customer notes
               </h2>
-              <p className="mt-3 whitespace-pre-line text-[15px] leading-relaxed text-white/65">{booking.notes}</p>
+              <p className="mt-3 whitespace-pre-line text-base leading-relaxed text-white/65">{booking.notes}</p>
             </section>
           ) : null}
 
           {booking.quoteRequest ? (
             <section className="border border-hairline bg-panel p-6">
               <h2 className="display text-xl text-white">From quote {booking.quoteRequest.reference}</h2>
-              <p className="mt-2 text-[15px] text-white/60">
+              <p className="mt-2 text-base text-white/60">
                 Quoted {formatMoney(booking.quoteRequest.quotedAmountCents)}
                 <Link href={`/admin/quotes/${booking.quoteRequest.id}`} className="ml-2 text-brand-400 hover:underline">
                   Open quote &rarr;
                 </Link>
               </p>
-              <p className="mt-3 whitespace-pre-line text-[14px] leading-relaxed text-white/45">
+              <p className="mt-3 whitespace-pre-line text-[0.95rem] leading-relaxed text-white/45">
                 {booking.quoteRequest.description}
               </p>
             </section>

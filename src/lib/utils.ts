@@ -37,7 +37,7 @@ export function formatDateTime(date: Date | string) {
 }
 
 /** Human reference shown to customers, e.g. CBD-Q-8F3K2A. */
-export function makeReference(kind: "Q" | "B") {
+export function makeReference(kind: "Q" | "B" | "C") {
   const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
   let out = "";
   for (let i = 0; i < 6; i += 1) {

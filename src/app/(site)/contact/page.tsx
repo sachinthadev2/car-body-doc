@@ -29,22 +29,22 @@ export default function ContactPage() {
           <div className="space-y-6">
             <a href={business.phoneHref} className="block border border-hairline bg-panel p-7 transition-colors hover:border-brand-500">
               <Phone className="size-6 text-brand-500" />
-              <p className="mt-4 text-[13px] uppercase tracking-widest text-white/40">Call us</p>
+              <p className="mt-4 text-sm uppercase tracking-widest text-white/40">Call us</p>
               <p className="display text-3xl text-white">{business.phoneDisplay}</p>
-              <p className="mt-1 text-[13px] text-white/45">Fastest answer during business hours</p>
+              <p className="mt-1 text-sm text-white/45">Fastest answer during business hours</p>
             </a>
 
             <a href={`mailto:${business.email}`} className="block border border-hairline bg-panel p-7 transition-colors hover:border-brand-500">
               <Mail className="size-6 text-brand-500" />
-              <p className="mt-4 text-[13px] uppercase tracking-widest text-white/40">Email</p>
+              <p className="mt-4 text-sm uppercase tracking-widest text-white/40">Email</p>
               <p className="font-display text-xl text-white">{business.email}</p>
-              <p className="mt-1 text-[13px] text-white/45">We reply within a few hours</p>
+              <p className="mt-1 text-sm text-white/45">We reply within a few hours</p>
             </a>
 
             <div className="border border-hairline bg-panel p-7">
               <Clock className="size-6 text-brand-500" />
-              <p className="mt-4 text-[13px] uppercase tracking-widest text-white/40">Hours</p>
-              <ul className="mt-2 space-y-1.5 text-[15px] text-white/65">
+              <p className="mt-4 text-sm uppercase tracking-widest text-white/40">Hours</p>
+              <ul className="mt-2 space-y-1.5 text-base text-white/65">
                 {business.hours.map((h) => (
                   <li key={h.days} className="flex justify-between gap-4">
                     <span>{h.days}</span>
@@ -56,8 +56,8 @@ export default function ContactPage() {
 
             <div className="border border-hairline bg-panel p-7">
               <MapPin className="size-6 text-brand-500" />
-              <p className="mt-4 text-[13px] uppercase tracking-widest text-white/40">Where we work</p>
-              <p className="mt-1 text-[15px] leading-relaxed text-white/65">
+              <p className="mt-4 text-sm uppercase tracking-widest text-white/40">Where we work</p>
+              <p className="mt-1 text-base leading-relaxed text-white/65">
                 Fully mobile across greater {business.baseCity}: {serviceAreas.map((a) => a.region).join(", ")}.
               </p>
               <ButtonLink href="/service-areas" variant="outline" size="sm" className="mt-5">
@@ -72,7 +72,7 @@ export default function ContactPage() {
                 <MessageSquare className="size-6 text-brand-500" />
                 Send a message
               </h2>
-              <p className="mt-2 text-[14px] text-white/50">
+              <p className="mt-2 text-[0.95rem] text-white/50">
                 After a price? The{" "}
                 <a href="/quote" className="text-brand-500 hover:underline">
                   quote form

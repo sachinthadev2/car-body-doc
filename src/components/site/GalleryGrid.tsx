@@ -41,12 +41,12 @@ export function GalleryGrid() {
             <figcaption className="mt-4 px-1 pb-1">
               <div className="flex items-start justify-between gap-4">
                 <h3 className="display text-xl text-white">{item.title}</h3>
-                <span className="shrink-0 border border-hairline px-2.5 py-1 text-[11px] uppercase tracking-wider text-white/45">
+                <span className="shrink-0 border border-hairline px-2.5 py-1 text-[0.72rem] uppercase tracking-wider text-white/45">
                   {item.suburb}
                 </span>
               </div>
-              <p className="mt-2 text-[14px] leading-relaxed text-white/55">{item.detail}</p>
-              <p className="mt-3 font-display text-[12px] uppercase tracking-widest text-brand-500">
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-white/55">{item.detail}</p>
+              <p className="mt-3 font-display text-xs uppercase tracking-widest text-brand-500">
                 {SERVICE_LABELS[item.service]}
               </p>
             </figcaption>

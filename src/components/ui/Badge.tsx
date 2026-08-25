@@ -11,7 +11,7 @@ export function StatusBadge({ status }: { status: QuoteStatus | BookingStatus })
   return (
     <span
       className={cn(
-        "inline-flex items-center whitespace-nowrap rounded-sm px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider ring-1 ring-inset",
+        "inline-flex items-center whitespace-nowrap rounded-sm px-2.5 py-1 text-[0.72rem] font-semibold uppercase tracking-wider ring-1 ring-inset",
         statusTone(status),
       )}
     >

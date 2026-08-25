@@ -163,3 +163,19 @@ export async function removeBlockedDate(formData: FormData) {
   await prisma.blockedDate.delete({ where: { id } }).catch(() => null);
   revalidatePath("/admin/settings");
 }
+
+/** Move a chat enquiry through new -> contacted -> closed. */
+export async function updateChatStatus(formData: FormData) {
+  await requireAdmin();
+  const id = String(formData.get("id") ?? "");
+  const status = String(formData.get("status") ?? "");
+  if (!["NEW", "CONTACTED", "CLOSED"].includes(status)) return;
+
+  await prisma.chatRequest.update({
+    where: { id },
+    data: { status: status as "NEW" | "CONTACTED" | "CLOSED" },
+  });
+
+  revalidatePath("/admin");
+  revalidatePath("/admin/leads");
+}

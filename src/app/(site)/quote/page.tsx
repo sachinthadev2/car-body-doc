@@ -45,7 +45,7 @@ export default async function QuotePage({
                     <span className="display text-2xl text-brand-500/50">{step.step}</span>
                     <div>
                       <p className="font-display text-base uppercase text-white">{step.title}</p>
-                      <p className="mt-1 text-[13px] leading-relaxed text-white/50">{step.detail}</p>
+                      <p className="mt-1 text-sm leading-relaxed text-white/50">{step.detail}</p>
                     </div>
                   </li>
                 ))}
@@ -54,7 +54,7 @@ export default async function QuotePage({
 
             <div className="border border-hairline bg-panel p-6">
               <h2 className="display text-xl text-white">Photo tips</h2>
-              <ul className="mt-4 space-y-3 text-[14px] text-white/55">
+              <ul className="mt-4 space-y-3 text-[0.95rem] text-white/55">
                 <li className="flex gap-3">
                   <Camera className="mt-0.5 size-4 shrink-0 text-brand-500" />
                   One wide shot of the whole panel, one close up of the damage.
@@ -76,18 +76,18 @@ export default async function QuotePage({
                   <Star key={i} className="size-4 fill-brand-500 text-brand-500" />
                 ))}
               </div>
-              <p className="mt-4 text-[14px] leading-relaxed text-white/70">&ldquo;{testimonials[1].text}&rdquo;</p>
+              <p className="mt-4 text-[0.95rem] leading-relaxed text-white/70">&ldquo;{testimonials[1].text}&rdquo;</p>
               <p className="mt-4 font-display text-base uppercase text-white">
                 {testimonials[1].name} <span className="text-white/40">&middot; {testimonials[1].suburb}</span>
               </p>
             </div>
 
             <div className="border border-hairline bg-panel-2 p-6 text-center">
-              <p className="text-[13px] uppercase tracking-widest text-white/40">Rather talk it through?</p>
+              <p className="text-sm uppercase tracking-widest text-white/40">Rather talk it through?</p>
               <a href={business.phoneHref} className="display mt-2 block text-3xl text-brand-500 hover:text-brand-400">
                 {business.phoneDisplay}
               </a>
-              <p className="mt-2 text-[13px] text-white/40">Mon - Fri 7am to 5pm, Sat 8am to 2pm</p>
+              <p className="mt-2 text-sm text-white/40">Mon - Fri 7am to 5pm, Sat 8am to 2pm</p>
             </div>
           </aside>
         </div>

@@ -23,11 +23,20 @@
 
 html {
   scroll-behavior: smooth;
+  /* Base scale for the whole site - bump this to grow every rem-based size. */
+  font-size: 17px;
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 16.5px;
+  }
 }
 
 body {
   background-color: var(--color-ink);
   color: #e8e8e8;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -105,6 +114,22 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .photo-scrim-soft {
   background: linear-gradient(to top, rgba(5, 5, 5, 0.95) 5%, rgba(5, 5, 5, 0.35) 60%, rgba(5, 5, 5, 0.6));
+}
+
+/* Lenis smooth scrolling hooks - it drives scrolling itself, so the native
+   smooth behaviour has to step aside while it is active. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 /* ==========================================================================

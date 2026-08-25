@@ -1,6 +1,6 @@
 "use client";
 
-import { CalendarDays, FileText, LayoutDashboard, LogOut, Mail, Settings, Users } from "lucide-react";
+import { CalendarDays, FileText, LayoutDashboard, LogOut, Mail, MessageSquare, Settings, Users } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -12,18 +12,26 @@ const nav = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
   { href: "/admin/quotes", label: "Quote Requests", icon: FileText },
   { href: "/admin/bookings", label: "Bookings", icon: CalendarDays },
+  { href: "/admin/leads", label: "Chat Leads", icon: MessageSquare },
   { href: "/admin/customers", label: "Customers", icon: Users },
   { href: "/admin/messages", label: "Messages", icon: Mail },
   { href: "/admin/settings", label: "Settings", icon: Settings },
 ];
 
-export function Sidebar({ name, counts }: { name: string; counts: { quotes: number; bookings: number; messages: number } }) {
+export function Sidebar({
+  name,
+  counts,
+}: {
+  name: string;
+  counts: { quotes: number; bookings: number; messages: number; leads: number };
+}) {
   const pathname = usePathname();
 
   const badges: Record<string, number> = {
     "/admin/quotes": counts.quotes,
     "/admin/bookings": counts.bookings,
     "/admin/messages": counts.messages,
+    "/admin/leads": counts.leads,
   };
 
   return (
@@ -68,17 +76,17 @@ export function Sidebar({ name, counts }: { name: string; counts: { quotes: numb
       <div className="border-t border-hairline p-4 lg:mt-auto">
         <p className="truncate text-sm text-white/70">{name}</p>
         <div className="mt-3 flex items-center justify-between gap-2">
-          <Link href="/" className="text-[13px] text-white/40 hover:text-white">
+          <Link href="/" className="text-sm text-white/40 hover:text-white">
             View site &rarr;
           </Link>
           <form action={logout}>
-            <button type="submit" className="flex items-center gap-1.5 text-[13px] text-white/40 hover:text-brand-400">
+            <button type="submit" className="flex items-center gap-1.5 text-sm text-white/40 hover:text-brand-400">
               <LogOut className="size-3.5" />
               Log out
             </button>
           </form>
         </div>
-        <p className="mt-3 text-[11px] text-white/25">{business.phoneDisplay}</p>
+        <p className="mt-3 text-[0.72rem] text-white/25">{business.phoneDisplay}</p>
       </div>
     </aside>
   );

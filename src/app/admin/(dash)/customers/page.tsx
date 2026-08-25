@@ -70,7 +70,7 @@ export default async function AdminCustomersPage({ searchParams }: { searchParam
         <h2 className="display text-xl text-white">Registered accounts</h2>
         <div className="mt-4 overflow-x-auto border border-hairline">
           <table className="w-full min-w-[720px] text-left text-sm">
-            <thead className="bg-panel-2 text-[11px] uppercase tracking-widest text-white/40">
+            <thead className="bg-panel-2 text-[0.72rem] uppercase tracking-widest text-white/40">
               <tr>
                 <th className="px-4 py-3">Name</th>
                 <th className="px-4 py-3">Email</th>
@@ -120,7 +120,7 @@ export default async function AdminCustomersPage({ searchParams }: { searchParam
         <p className="mt-1 text-sm text-white/40">People who quoted without creating an account.</p>
         <div className="mt-4 overflow-x-auto border border-hairline">
           <table className="w-full min-w-[600px] text-left text-sm">
-            <thead className="bg-panel-2 text-[11px] uppercase tracking-widest text-white/40">
+            <thead className="bg-panel-2 text-[0.72rem] uppercase tracking-widest text-white/40">
               <tr>
                 <th className="px-4 py-3">Name</th>
                 <th className="px-4 py-3">Email</th>

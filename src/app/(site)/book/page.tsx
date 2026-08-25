@@ -95,7 +95,7 @@ export default async function BookPage({
                 <CalendarDays className="size-5 text-brand-500" />
                 Booking slots
               </h2>
-              <ul className="mt-4 space-y-3 text-[14px] text-white/55">
+              <ul className="mt-4 space-y-3 text-[0.95rem] text-white/55">
                 <li>
                   <span className="font-display text-base uppercase text-white">Morning</span> - we arrive between 7am and
                   8am, done by early afternoon.
@@ -105,7 +105,7 @@ export default async function BookPage({
                   done by late afternoon.
                 </li>
               </ul>
-              <div className="mt-5 border-t border-hairline pt-4 text-[13px] text-white/45">
+              <div className="mt-5 border-t border-hairline pt-4 text-sm text-white/45">
                 {business.hours.map((h) => (
                   <p key={h.days}>
                     {h.days}: {h.time}
@@ -119,7 +119,7 @@ export default async function BookPage({
                 <Info className="size-5 text-brand-500" />
                 Before we arrive
               </h2>
-              <ul className="mt-4 space-y-2.5 text-[14px] text-white/55">
+              <ul className="mt-4 space-y-2.5 text-[0.95rem] text-white/55">
                 <li className="flex gap-2.5">
                   <span className="text-brand-500">&bull;</span> Park somewhere flat with a metre or so of clearance around
                   the car.
@@ -138,7 +138,7 @@ export default async function BookPage({
             </div>
 
             <div className="border border-hairline bg-panel-2 p-6 text-center">
-              <p className="text-[13px] uppercase tracking-widest text-white/40">Need it sooner?</p>
+              <p className="text-sm uppercase tracking-widest text-white/40">Need it sooner?</p>
               <a href={business.phoneHref} className="display mt-2 block text-3xl text-brand-500 hover:text-brand-400">
                 {business.phoneDisplay}
               </a>

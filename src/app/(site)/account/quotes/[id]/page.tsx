@@ -55,17 +55,17 @@ export default async function AccountQuotePage({ params }: { params: Promise<{ i
         {/* The price */}
         {quote.quotedAmountCents ? (
           <div className="mt-8 border border-brand-500/40 bg-brand-500/5 p-7 sm:p-9">
-            <p className="text-[12px] uppercase tracking-widest text-white/45">Your fixed price</p>
+            <p className="text-xs uppercase tracking-widest text-white/45">Your fixed price</p>
             <p className="display mt-1 text-5xl text-white">{formatMoney(quote.quotedAmountCents)}</p>
             {quote.quoteMessage ? (
-              <p className="mt-5 max-w-2xl whitespace-pre-line text-[15px] leading-relaxed text-white/65">{quote.quoteMessage}</p>
+              <p className="mt-5 max-w-2xl whitespace-pre-line text-base leading-relaxed text-white/65">{quote.quoteMessage}</p>
             ) : null}
-            <p className="mt-4 text-[13px] text-white/40">
+            <p className="mt-4 text-sm text-white/40">
               Quoted {quote.quotedAt ? formatDate(quote.quotedAt) : ""} &middot; valid for 30 days
             </p>
 
             {quote.booking ? (
-              <p className="mt-6 border-t border-white/10 pt-5 text-[15px] text-white/70">
+              <p className="mt-6 border-t border-white/10 pt-5 text-base text-white/70">
                 Booked in for {formatDateOnly(quote.booking.preferredDate)} &middot; reference{" "}
                 <span className="font-display text-brand-500">{quote.booking.reference}</span>
               </p>
@@ -80,7 +80,7 @@ export default async function AccountQuotePage({ params }: { params: Promise<{ i
         ) : (
           <div className="mt-8 border border-hairline bg-panel p-7">
             <p className="display text-2xl text-white">We are on it</p>
-            <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-white/55">
+            <p className="mt-2 max-w-2xl text-base leading-relaxed text-white/55">
               Your request is with us and we are working out a price. Most quotes go out the same day. If you need it
               urgently, call{" "}
               <a href={business.phoneHref} className="text-brand-500 hover:underline">
@@ -124,7 +124,7 @@ export default async function AccountQuotePage({ params }: { params: Promise<{ i
 
         <div className="mt-8 border border-hairline bg-panel p-6">
           <h2 className="display text-xl text-white">What you told us</h2>
-          <p className="mt-3 whitespace-pre-line text-[15px] leading-relaxed text-white/60">{quote.description}</p>
+          <p className="mt-3 whitespace-pre-line text-base leading-relaxed text-white/60">{quote.description}</p>
         </div>
 
         {quote.photos.length > 0 && (

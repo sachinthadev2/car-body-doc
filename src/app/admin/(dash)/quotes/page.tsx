@@ -87,7 +87,7 @@ export default async function AdminQuotesPage({
 
       <div className="mt-6 overflow-x-auto border border-hairline">
         <table className="w-full min-w-[900px] text-left text-sm">
-          <thead className="bg-panel-2 text-[11px] uppercase tracking-widest text-white/40">
+          <thead className="bg-panel-2 text-[0.72rem] uppercase tracking-widest text-white/40">
             <tr>
               <th className="px-4 py-3">Ref</th>
               <th className="px-4 py-3">Customer</th>
@@ -114,7 +114,7 @@ export default async function AdminQuotesPage({
                 </td>
                 <td className="px-4 py-3.5 text-white/75">
                   {quote.name}
-                  <span className="block text-[12px] text-white/35">
+                  <span className="block text-xs text-white/35">
                     {quote.suburb} &middot; {quote.phone}
                   </span>
                 </td>
@@ -156,7 +156,7 @@ function FilterChip({ href, label, active }: { href: string; label: string; acti
     <Link
       href={href}
       className={cn(
-        "border px-3.5 py-1.5 font-display text-[13px] uppercase tracking-wide transition-colors",
+        "border px-3.5 py-1.5 font-display text-sm uppercase tracking-wide transition-colors",
         active ? "border-brand-500 bg-brand-500 text-white" : "border-hairline text-white/55 hover:border-white/40 hover:text-white",
       )}
     >

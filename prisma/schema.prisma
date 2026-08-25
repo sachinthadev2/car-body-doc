@@ -191,3 +191,35 @@ model Setting {
   value     String
   updatedAt DateTime @updatedAt
 }
+
+enum ChatStatus {
+  NEW
+  CONTACTED
+  CLOSED
+}
+
+/// Enquiries captured by the on-site chat widget.
+model ChatRequest {
+  id        String     @id @default(cuid())
+  reference String     @unique
+  topic     String
+  name      String
+  phone     String
+  email     String?
+  suburb    String?
+  message   String?    @db.Text
+  status    ChatStatus @default(NEW)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@index([status, createdAt])
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}

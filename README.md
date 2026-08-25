@@ -94,6 +94,26 @@ Animation is plain CSS plus one small component — no animation library, so it 
 
 ---
 
+## Chat widget & newsletter
+
+A floating chat launcher sits bottom-right on every public page (`src/components/site/ChatWidget.tsx`). Visitors pick what they need from a short menu, leave a name and phone, and the enquiry is saved as a `ChatRequest` and emailed both to you and to them. Edit the `TOPICS` array in that file to change the questions.
+
+The footer newsletter box saves to `NewsletterSubscriber`. Re-subscribing an existing address is treated as success rather than an error.
+
+Both land in the admin under **Chat Leads** (`/admin/leads`), where an enquiry can be flipped between New and Contacted. New enquiries show a count badge in the sidebar.
+
+> These two tables were added with `npx prisma db push`, not a migration — the `prisma/migrations` folder still holds the original Postgres-era SQL and its `migration_lock.toml` says `postgresql`, so `prisma migrate` will not run against the current MySQL database until that is reset.
+
+---
+
+## Navigation extras
+
+- **Smooth scrolling** via Lenis (`src/components/site/SmoothScroll.tsx`). Disabled outright under `prefers-reduced-motion`. Anything that scrolls inside its own panel needs `data-lenis-prevent` on it — the chat panel and the gallery lightbox already do.
+- **Back to top** button, bottom-left, with a ring showing how far down the page you are (`ScrollToTop.tsx`).
+- Both float above the mobile call bar on small screens.
+
+---
+
 ## Emails
 
 Sent through MailerSend from `src/lib/mail.ts`:

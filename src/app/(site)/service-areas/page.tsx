@@ -39,7 +39,7 @@ export default function ServiceAreasPage() {
                 {area.suburbs.map((suburb) => (
                   <li
                     key={suburb}
-                    className="border border-hairline px-3 py-1.5 text-[13px] text-white/55 transition-colors hover:border-brand-500/50 hover:text-white"
+                    className="border border-hairline px-3 py-1.5 text-sm text-white/55 transition-colors hover:border-brand-500/50 hover:text-white"
                   >
                     {suburb}
                   </li>
@@ -60,14 +60,14 @@ export default function ServiceAreasPage() {
             <div className="hover-lift border border-hairline bg-panel-2 p-6">
               <Navigation className="size-6 text-brand-500" />
               <h3 className="display mt-4 text-xl text-white">No call-out fee</h3>
-              <p className="mt-2 text-[14px] leading-relaxed text-white/55">
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-white/55">
                 Travel inside our standard Sydney coverage is included in the quoted price. What we quote is what you pay.
               </p>
             </div>
             <div className="hover-lift border border-hairline bg-panel-2 p-6">
               <Car className="size-6 text-brand-500" />
               <h3 className="display mt-4 text-xl text-white">Outside the radius?</h3>
-              <p className="mt-2 text-[14px] leading-relaxed text-white/55">
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-white/55">
                 Central Coast, Wollongong, Blue Mountains and the Hawkesbury - give us a call. We regularly travel further
                 for bigger jobs or a few cars in one spot.
               </p>
@@ -75,7 +75,7 @@ export default function ServiceAreasPage() {
             <div className="hover-lift border border-hairline bg-panel-2 p-6">
               <MapPin className="size-6 text-brand-500" />
               <h3 className="display mt-4 text-xl text-white">Fleets and dealers</h3>
-              <p className="mt-2 text-[14px] leading-relaxed text-white/55">
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-white/55">
                 We service fleet yards, dealerships and rental depots across Sydney with volume pricing. Ask us for a rate
                 card.
               </p>
@@ -83,7 +83,7 @@ export default function ServiceAreasPage() {
             <div className="hover-lift border border-hairline bg-panel-2 p-6">
               <Navigation className="size-6 text-brand-500" />
               <h3 className="display mt-4 text-xl text-white">Apartment buildings</h3>
-              <p className="mt-2 text-[14px] leading-relaxed text-white/55">
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-white/55">
                 Basement car park, visitor bay or the street out front - we work in all of them. Just check with building
                 management first.
               </p>

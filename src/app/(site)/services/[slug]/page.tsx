@@ -71,7 +71,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               <div className="flex items-center gap-3 py-6 sm:px-6">
                 <fact.icon className="size-6 shrink-0 text-brand-500" />
                 <div>
-                  <p className="text-[12px] uppercase tracking-widest text-white/35">{fact.label}</p>
+                  <p className="text-xs uppercase tracking-widest text-white/35">{fact.label}</p>
                   <p className="font-display text-xl text-white">{fact.value}</p>
                 </div>
               </div>
@@ -89,7 +89,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               {service.covers.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-3 border-b border-hairline pb-3 text-[15px] text-white/65 transition-colors hover:text-white"
+                  className="flex items-start gap-3 border-b border-hairline pb-3 text-base text-white/65 transition-colors hover:text-white"
                 >
                   <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-brand-500" />
                   {item}
@@ -106,7 +106,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   <span className="display shrink-0 text-3xl text-brand-500/60">{String(i + 1).padStart(2, "0")}</span>
                   <div>
                     <h3 className="display text-xl text-white">{step.title}</h3>
-                    <p className="mt-1.5 text-[15px] leading-relaxed text-white/55">{step.detail}</p>
+                    <p className="mt-1.5 text-base leading-relaxed text-white/55">{step.detail}</p>
                   </div>
                 </li>
               ))}

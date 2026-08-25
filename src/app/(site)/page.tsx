@@ -100,7 +100,7 @@ export default function HomePage() {
         <div className="relative mx-auto w-full max-w-7xl px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
           <div className="max-w-3xl">
             <p
-              className="anim-in inline-flex items-center gap-2 border border-brand-500/40 bg-brand-500/10 px-3 py-1.5 font-display text-[12px] uppercase tracking-[0.22em] text-brand-400 backdrop-blur-sm"
+              className="anim-in inline-flex items-center gap-2 border border-brand-500/40 bg-brand-500/10 px-3 py-1.5 font-display text-xs uppercase tracking-[0.22em] text-brand-400 backdrop-blur-sm"
               style={{ animationDelay: "60ms" }}
             >
               <span className="relative flex size-2">
@@ -123,7 +123,7 @@ export default function HomePage() {
             </h1>
 
             <p
-              className="anim-in mt-7 max-w-xl text-[17px] leading-relaxed text-white/75 sm:text-lg"
+              className="anim-in mt-7 max-w-xl text-lg leading-relaxed text-white/75 sm:text-lg"
               style={{ animationDelay: "420ms" }}
             >
               Dents, scratches, bumper damage and paintwork repaired at your home or workplace. No towing, no workshop
@@ -182,7 +182,7 @@ export default function HomePage() {
                 <Icon className="size-7 shrink-0 text-brand-500" />
                 <div>
                   <p className="font-display text-base uppercase leading-tight text-white">{point.title}</p>
-                  <p className="text-[13px] text-white/45">{point.detail}</p>
+                  <p className="text-sm text-white/45">{point.detail}</p>
                 </div>
               </Reveal>
             );
@@ -206,7 +206,7 @@ export default function HomePage() {
             />
           </Reveal>
           <Reveal direction="left" delay={120}>
-            <p className="max-w-md text-[15px] leading-relaxed text-white/55">
+            <p className="max-w-md text-base leading-relaxed text-white/55">
               Everything on our trailer is set up for on-site repairs - compressor, spray booth, paint mixing and power.
               Four core services cover the vast majority of what a car needs.
             </p>
@@ -240,7 +240,7 @@ export default function HomePage() {
                     <h3 className="display text-2xl text-white transition-colors group-hover:text-brand-400">
                       {service.name}
                     </h3>
-                    <p className="mt-3 flex-1 text-[15px] leading-relaxed text-white/55">{service.short}</p>
+                    <p className="mt-3 flex-1 text-base leading-relaxed text-white/55">{service.short}</p>
                     <div className="mt-6 flex items-center justify-between border-t border-hairline pt-4">
                       <span className="font-display text-sm uppercase tracking-wide text-white/40">
                         From <span className="text-brand-500">{service.priceFrom}</span>
@@ -269,7 +269,7 @@ export default function HomePage() {
                 <span className="display text-7xl leading-none text-white/[0.08]">{step.step}</span>
                 <span className="mt-4 block h-px w-14 bg-brand-500" />
                 <h3 className="display mt-5 text-2xl text-white">{step.title}</h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-white/55">{step.detail}</p>
+                <p className="mt-3 text-base leading-relaxed text-white/55">{step.detail}</p>
               </Reveal>
             ))}
           </div>
@@ -306,7 +306,7 @@ export default function HomePage() {
                     <p className="font-display text-lg uppercase text-white">{item.title}</p>
                     <p className="text-sm text-white/50">{item.detail}</p>
                   </div>
-                  <span className="shrink-0 border border-hairline px-2.5 py-1 text-[11px] uppercase tracking-wider text-white/45">
+                  <span className="shrink-0 border border-hairline px-2.5 py-1 text-[0.72rem] uppercase tracking-wider text-white/45">
                     {item.suburb}
                   </span>
                 </figcaption>
@@ -328,7 +328,7 @@ export default function HomePage() {
               <p className="display text-5xl text-brand-500 sm:text-6xl">
                 <CountUp to={stat.value} suffix={stat.suffix} />
               </p>
-              <p className="mx-auto mt-2 max-w-[11rem] text-[13px] leading-snug text-white/50">{stat.label}</p>
+              <p className="mx-auto mt-2 max-w-[11rem] text-sm leading-snug text-white/50">{stat.label}</p>
             </Reveal>
           ))}
         </div>
@@ -408,7 +408,7 @@ export default function HomePage() {
                     <MapPin className="size-4 text-brand-500" />
                     <h3 className="font-display text-lg uppercase text-white">{area.region}</h3>
                   </div>
-                  <p className="mt-3 text-[13px] leading-relaxed text-white/45">
+                  <p className="mt-3 text-sm leading-relaxed text-white/45">
                     {area.suburbs.slice(0, 6).join(" · ")}
                   </p>
                 </div>
@@ -441,10 +441,10 @@ export default function HomePage() {
                     <Star key={s} className="size-4 fill-brand-500 text-brand-500" />
                   ))}
                 </div>
-                <p className="mt-5 flex-1 text-[15px] leading-relaxed text-white/70">&ldquo;{review.text}&rdquo;</p>
+                <p className="mt-5 flex-1 text-base leading-relaxed text-white/70">&ldquo;{review.text}&rdquo;</p>
                 <footer className="mt-6 border-t border-hairline pt-4">
                   <p className="font-display text-lg uppercase text-white">{review.name}</p>
-                  <p className="text-[13px] text-white/40">{review.suburb}</p>
+                  <p className="text-sm text-white/40">{review.suburb}</p>
                 </footer>
               </blockquote>
             </Reveal>
@@ -457,7 +457,7 @@ export default function HomePage() {
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <Reveal direction="right">
             <SectionHeading eyebrow="Questions" title="Good to know" />
-            <div className="mt-8 space-y-4 text-[15px] text-white/55">
+            <div className="mt-8 space-y-4 text-base text-white/55">
               <p className="flex items-start gap-3">
                 <Clock className="mt-0.5 size-5 shrink-0 text-brand-500" />
                 Most repairs are finished the same day we arrive.

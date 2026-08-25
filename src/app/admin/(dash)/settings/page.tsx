@@ -27,7 +27,7 @@ export default async function AdminSettingsPage() {
             <CalendarX className="size-5 text-brand-500" />
             Days off
           </h2>
-          <p className="mt-1 text-[13px] text-white/45">
+          <p className="mt-1 text-sm text-white/45">
             Block a date and customers cannot request a booking on it.
           </p>
 
@@ -54,8 +54,8 @@ export default async function AdminSettingsPage() {
             {blocked.map((day) => (
               <li key={day.id} className="flex items-center justify-between gap-4 py-3">
                 <div>
-                  <p className="text-[15px] text-white">{formatDateOnly(day.date)}</p>
-                  {day.reason ? <p className="text-[13px] text-white/40">{day.reason}</p> : null}
+                  <p className="text-base text-white">{formatDateOnly(day.date)}</p>
+                  {day.reason ? <p className="text-sm text-white/40">{day.reason}</p> : null}
                 </div>
                 <form action={removeBlockedDate}>
                   <input type="hidden" name="id" value={day.id} />
@@ -75,7 +75,7 @@ export default async function AdminSettingsPage() {
             <Info className="size-5 text-brand-500" />
             Business details
           </h2>
-          <p className="mt-1 text-[13px] text-white/45">
+          <p className="mt-1 text-sm text-white/45">
             These live in <code className="text-brand-400">src/lib/site.ts</code> - edit that file to change them across
             the whole site.
           </p>
@@ -107,7 +107,7 @@ export default async function AdminSettingsPage() {
 
       <section className="mt-8 border border-hairline bg-panel p-6">
         <h2 className="display text-xl text-white">Gallery</h2>
-        <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-white/55">
+        <p className="mt-2 max-w-2xl text-base leading-relaxed text-white/55">
           The before and after gallery is intentionally hardcoded for speed. Drop your photos into{" "}
           <code className="text-brand-400">/public/gallery</code> and add or edit entries in the{" "}
           <code className="text-brand-400">gallery</code> array in <code className="text-brand-400">src/lib/site.ts</code>

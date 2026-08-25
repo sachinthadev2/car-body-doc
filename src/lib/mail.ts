@@ -341,3 +341,57 @@ function escapeHtml(value: string) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
 }
+
+type ChatLike = {
+  reference: string;
+  topic: string;
+  name: string;
+  phone: string;
+  email?: string | null;
+  suburb?: string | null;
+  message?: string | null;
+};
+
+export async function sendChatRequestToAdmin(request: ChatLike) {
+  return sendEmail({
+    to: adminInbox(),
+    subject: `New chat enquiry - ${request.topic} - ${request.name}`,
+    ...(request.email ? { replyTo: request.email } : {}),
+    html: layout({
+      heading: "New chat enquiry",
+      intro: `${request.name} started a chat on the website and asked to be contacted.`,
+      rows: [
+        ["Reference", request.reference],
+        ["They want", request.topic],
+        ["Name", request.name],
+        ["Phone", request.phone],
+        ["Email", request.email || "Not supplied"],
+        ["Suburb", request.suburb || "Not supplied"],
+      ],
+      body: request.message
+        ? `<p style="margin:0;font-size:14px;color:#444;line-height:1.6;"><strong>Their message:</strong><br>${escapeHtml(request.message).replace(/\n/g, "<br>")}</p>`
+        : "",
+      cta: { label: "Open in admin", href: `${siteUrl}/admin/leads` },
+    }),
+  });
+}
+
+export async function sendChatRequestToCustomer(request: ChatLike & { email: string }) {
+  return sendEmail({
+    to: request.email,
+    toName: request.name,
+    subject: `We've got your enquiry (${request.reference})`,
+    html: layout({
+      heading: `Thanks ${request.name.split(" ")[0]}, we'll be in touch.`,
+      intro:
+        "Your enquiry is with us. We usually call back within a couple of hours during business hours - often much sooner.",
+      rows: [
+        ["Reference", request.reference],
+        ["Enquiry", request.topic],
+        ["We'll call", request.phone],
+      ],
+      body: `<p style="margin:0;font-size:14px;color:#444;line-height:1.6;">In a hurry? Call us on <strong>${business.phoneDisplay}</strong>.</p>`,
+      cta: { label: "Get a full photo quote", href: `${siteUrl}/quote` },
+    }),
+  });
+}

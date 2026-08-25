@@ -77,3 +77,21 @@ export const galleryPhotos = {
   collisionBefore: u("photo-1707510844729-c0a09348f54f", 1200),
   collisionAfter: u("photo-1663589714502-80bf7a6579c2", 1200),
 } as const;
+
+/**
+ * Mosaic shown on the gallery page. `span` controls the tile size in the
+ * masonry grid - keep a mix of tall, wide and square for the collage look.
+ */
+export type ShowcaseItem = { src: string; alt: string; span: string };
+
+export const showcase: ShowcaseItem[] = [
+  { src: u("photo-1628577478162-d4d00467c627", 1200), alt: "Panel technician repairing a bumper", span: "col-span-1 row-span-2" },
+  { src: u("photo-1652987086612-d948b775d358", 1200), alt: "Detailing a repaired sports car", span: "col-span-1 row-span-2" },
+  { src: u("photo-1620584898989-d39f7f9ed1b7", 1600), alt: "Machine polishing dark paintwork", span: "col-span-2 row-span-2" },
+  { src: u("photo-1666009387246-65e8ad8e7103", 1200), alt: "Spray painting a panel on site", span: "col-span-1 row-span-3" },
+  { src: u("photo-1632823469901-5d2cfff5ba50", 1200), alt: "Cutting and polishing a finished panel", span: "col-span-1 row-span-2" },
+  { src: u("photo-1610092708835-af669294f3f3", 1200), alt: "Close up of a colour matched respray", span: "col-span-1 row-span-3" },
+  { src: u("photo-1676035291793-645c307e5a4e", 1200), alt: "Masked up vehicle ready for paint", span: "col-span-1 row-span-2" },
+  { src: u("photo-1587742379711-0083b22a7ba1", 1600), alt: "Final wipe down after a repair", span: "col-span-2 row-span-2" },
+  { src: u("photo-1618783129985-dd97dbe4ad99", 1200), alt: "Hands on the tools in the mobile workshop", span: "col-span-1 row-span-2" },
+];

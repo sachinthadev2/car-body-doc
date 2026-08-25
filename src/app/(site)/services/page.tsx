@@ -75,16 +75,16 @@ export default function ServicesPage() {
                     <div className="flex items-start justify-between gap-6">
                       <h2 className="display text-3xl text-white lg:text-4xl">{service.name}</h2>
                       <div className="text-right">
-                        <p className="font-display text-[11px] uppercase tracking-widest text-white/35">From</p>
+                        <p className="font-display text-[0.72rem] uppercase tracking-widest text-white/35">From</p>
                         <p className="display text-2xl text-brand-500">{service.priceFrom}</p>
                       </div>
                     </div>
 
-                    <p className="mt-4 text-[15px] leading-relaxed text-white/60">{service.blurb}</p>
+                    <p className="mt-4 text-base leading-relaxed text-white/60">{service.blurb}</p>
 
                     <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
                       {service.covers.slice(0, 4).map((item) => (
-                        <li key={item} className="flex items-start gap-2 text-[14px] text-white/55">
+                        <li key={item} className="flex items-start gap-2 text-[0.95rem] text-white/55">
                           <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-brand-500" />
                           {item}
                         </li>
@@ -92,7 +92,7 @@ export default function ServicesPage() {
                     </ul>
 
                     <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-hairline pt-5">
-                      <span className="flex items-center gap-2 text-[13px] text-white/45">
+                      <span className="flex items-center gap-2 text-sm text-white/45">
                         <Clock className="size-4 text-brand-500" />
                         {service.turnaround}
                       </span>
@@ -135,9 +135,9 @@ export default function ServicesPage() {
               <tbody>
                 {comparison.map((row) => (
                   <tr key={row.point} className="border-b border-hairline transition-colors hover:bg-white/[0.02]">
-                    <td className="py-4 pr-4 text-[14px] text-white/45">{row.point}</td>
-                    <td className="py-4 pr-4 text-[15px] text-white/70">{row.shop}</td>
-                    <td className="py-4 text-[15px] font-medium text-white">{row.us}</td>
+                    <td className="py-4 pr-4 text-[0.95rem] text-white/45">{row.point}</td>
+                    <td className="py-4 pr-4 text-base text-white/70">{row.shop}</td>
+                    <td className="py-4 text-base font-medium text-white">{row.us}</td>
                   </tr>
                 ))}
               </tbody>

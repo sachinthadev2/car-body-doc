@@ -34,7 +34,7 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
         <h2 className="display mt-6 text-3xl text-white">Request received</h2>
         <p className="mx-auto mt-3 max-w-md text-white/60">{state.message}</p>
         <p className="mt-6 inline-block border border-hairline bg-panel-2 px-5 py-3">
-          <span className="block text-[11px] uppercase tracking-widest text-white/40">Your reference</span>
+          <span className="block text-[0.72rem] uppercase tracking-widest text-white/40">Your reference</span>
           <span className="font-display text-2xl text-brand-500">{state.reference}</span>
         </p>
         <p className="mt-6 text-sm text-white/50">
@@ -133,7 +133,7 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
         </Field>
 
         <div>
-          <p className="mb-1.5 text-[13px] font-medium text-white/70">
+          <p className="mb-1.5 text-sm font-medium text-white/70">
             Photos of the damage <span className="font-normal text-white/35">- up to 5, this is what gets you an accurate price</span>
           </p>
           <label
@@ -142,7 +142,7 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
           >
             <Camera className="size-8 text-brand-500" />
             <span className="mt-3 font-display text-lg uppercase text-white">Add photos</span>
-            <span className="mt-1 text-[13px] text-white/40">JPG, PNG, WEBP or HEIC &middot; max 8MB each</span>
+            <span className="mt-1 text-sm text-white/40">JPG, PNG, WEBP or HEIC &middot; max 8MB each</span>
           </label>
           <input
             ref={fileRef}
@@ -171,7 +171,7 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
                     if (fileRef.current) fileRef.current.value = "";
                     setPhotos([]);
                   }}
-                  className="flex items-center gap-1.5 text-[13px] text-white/40 hover:text-brand-400"
+                  className="flex items-center gap-1.5 text-sm text-white/40 hover:text-brand-400"
                 >
                   <X className="size-3.5" /> Clear photos
                 </button>
@@ -257,7 +257,7 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
           </Select>
         </Field>
 
-        <p className="text-[13px] leading-relaxed text-white/40">
+        <p className="text-sm leading-relaxed text-white/40">
           By sending this you agree to us contacting you about your repair. We never pass your details on. See our{" "}
           <Link href="/privacy" className="text-white/60 underline hover:text-brand-400">
             privacy policy

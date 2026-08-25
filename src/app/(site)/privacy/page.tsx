@@ -73,7 +73,7 @@ export default function PrivacyPage() {
             <div key={section.title}>
               <h2 className="display text-2xl text-white">{section.title}</h2>
               {section.body.map((paragraph) => (
-                <p key={paragraph} className="mt-4 text-[15px] leading-relaxed text-white/60">
+                <p key={paragraph} className="mt-4 text-base leading-relaxed text-white/60">
                   {paragraph}
                 </p>
               ))}
@@ -82,7 +82,7 @@ export default function PrivacyPage() {
 
           <div className="border border-hairline bg-panel p-6">
             <h2 className="display text-xl text-white">Questions about privacy</h2>
-            <p className="mt-3 text-[15px] leading-relaxed text-white/60">
+            <p className="mt-3 text-base leading-relaxed text-white/60">
               Contact us at{" "}
               <a href={`mailto:${business.email}`} className="text-brand-500 hover:underline">
                 {business.email}
@@ -96,7 +96,7 @@ export default function PrivacyPage() {
             </p>
           </div>
 
-          <p className="border-t border-hairline pt-6 text-[13px] text-white/35">
+          <p className="border-t border-hairline pt-6 text-sm text-white/35">
             This policy is a starting point and should be reviewed by your own legal adviser before launch.
           </p>
         </div>

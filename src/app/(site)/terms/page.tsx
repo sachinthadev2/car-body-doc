@@ -75,14 +75,14 @@ export default function TermsPage() {
             <div key={section.title}>
               <h2 className="display text-2xl text-white">{section.title}</h2>
               {section.body.map((paragraph) => (
-                <p key={paragraph} className="mt-4 text-[15px] leading-relaxed text-white/60">
+                <p key={paragraph} className="mt-4 text-base leading-relaxed text-white/60">
                   {paragraph}
                 </p>
               ))}
             </div>
           ))}
 
-          <p className="border-t border-hairline pt-6 text-[13px] text-white/35">
+          <p className="border-t border-hairline pt-6 text-sm text-white/35">
             These terms are a starting point and should be reviewed by your own legal adviser before launch.
           </p>
         </div>

@@ -12,15 +12,16 @@ export const metadata: Metadata = {
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const admin = await requireAdmin();
 
-  const [quotes, bookings, messages] = await Promise.all([
+  const [quotes, bookings, messages, leads] = await Promise.all([
     prisma.quoteRequest.count({ where: { status: { in: ["NEW", "REVIEWING"] } } }),
     prisma.booking.count({ where: { status: "PENDING" } }),
     prisma.contactMessage.count({ where: { handled: false } }),
+    prisma.chatRequest.count({ where: { status: "NEW" } }),
   ]);
 
   return (
     <div className="flex min-h-screen flex-col bg-ink lg:flex-row">
-      <Sidebar name={admin.name} counts={{ quotes, bookings, messages }} />
+      <Sidebar name={admin.name} counts={{ quotes, bookings, messages, leads }} />
       <main className="min-w-0 flex-1 lg:h-screen lg:overflow-y-auto">{children}</main>
     </div>
   );
