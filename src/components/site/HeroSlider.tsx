@@ -86,7 +86,7 @@ export function HeroSlider() {
         their links can't be tabbed to, and only the active headline is an <h1>
         so the page still has exactly one.
       */}
-      <div className="relative mx-auto w-full max-w-7xl px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
+      <div className="relative mx-auto w-full max-w-7xl px-4 pb-24 pt-4 sm:px-6 sm:pb-28 sm:pt-6 lg:px-8">
         <div className="grid">
           {heroSlides.map((item, i) => {
             const active = i === index;
