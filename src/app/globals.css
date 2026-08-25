@@ -326,6 +326,10 @@ html.lenis body {
   .sheen:hover::after {
     animation: none !important;
   }
+  .drawer-panel,
+  .drawer-backdrop {
+    transition: none !important;
+  }
   .hover-lift:hover,
   .zoom-parent:hover img {
     transform: none !important;

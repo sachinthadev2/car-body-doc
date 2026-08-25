@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  distDir: process.env.NEXT_DIST_DIR ?? ".next",
   experimental: {
     // Damage photos are posted through a server action, so the default 1MB
     // action body limit is far too small.
