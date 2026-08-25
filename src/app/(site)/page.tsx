@@ -3,7 +3,6 @@ import {
   BadgeCheck,
   Car,
   CheckCircle2,
-  ChevronDown,
   Clock,
   MapPin,
   Phone,
@@ -20,6 +19,7 @@ import Link from "next/link";
 import { BeforeAfter } from "@/components/site/BeforeAfter";
 import { CtaBand } from "@/components/site/CtaBand";
 import { FaqAccordion } from "@/components/site/FaqAccordion";
+import { HeroSlider } from "@/components/site/HeroSlider";
 import { CountUp, Reveal } from "@/components/site/Reveal";
 import { Section, SectionHeading } from "@/components/site/Section";
 import { ButtonLink } from "@/components/ui/Button";
@@ -84,81 +84,7 @@ export default function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* ---------------------------------------------------------------- Hero */}
-      <section className="relative isolate flex min-h-[88vh] items-center overflow-hidden">
-        <Image
-          src={business.heroImage}
-          alt="Car Body Doc technician repairing a car on site"
-          fill
-          priority
-          sizes="100vw"
-          className="anim-ken-burns object-cover object-center"
-        />
-        <div className="hero-vignette absolute inset-0" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/50 to-ink/10" />
-
-        <div className="relative mx-auto w-full max-w-7xl px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
-          <div className="max-w-3xl">
-            <p
-              className="anim-in inline-flex items-center gap-2 border border-brand-500/40 bg-brand-500/10 px-3 py-1.5 font-display text-xs uppercase tracking-[0.22em] text-brand-400 backdrop-blur-sm"
-              style={{ animationDelay: "60ms" }}
-            >
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand-500 opacity-75" />
-                <span className="relative inline-flex size-2 rounded-full bg-brand-500" />
-              </span>
-              Servicing all of {business.baseCity}
-            </p>
-
-            <h1 className="display mt-6 text-[13vw] leading-[0.88] text-white sm:text-6xl lg:text-7xl xl:text-8xl">
-              <span className="anim-in block" style={{ animationDelay: "140ms" }}>
-                Mobile Smash
-              </span>
-              <span className="anim-in block" style={{ animationDelay: "230ms" }}>
-                Repairs.
-              </span>
-              <span className="anim-in block text-brand-500" style={{ animationDelay: "320ms" }}>
-                We Come To You.
-              </span>
-            </h1>
-
-            <p
-              className="anim-in mt-7 max-w-xl text-lg leading-relaxed text-white/75 sm:text-lg"
-              style={{ animationDelay: "420ms" }}
-            >
-              Dents, scratches, bumper damage and paintwork repaired at your home or workplace. No towing, no workshop
-              queue, no lost day. Send a photo and get a fixed price back today.
-            </p>
-
-            <div className="anim-in mt-9 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "510ms" }}>
-              <ButtonLink href="/quote" size="lg" className="sheen group">
-                Get A Free Quote
-                <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </ButtonLink>
-              <a
-                href={business.phoneHref}
-                className="inline-flex items-center justify-center gap-2.5 rounded-sm border border-white/25 bg-black/40 px-8 py-4 font-display text-lg font-semibold uppercase tracking-wide text-white backdrop-blur transition-all duration-300 hover:border-brand-500 hover:bg-black/60"
-              >
-                <Phone className="size-5 text-brand-500" />
-                {business.phoneDisplay}
-              </a>
-            </div>
-
-            <ul className="anim-in mt-10 flex flex-wrap gap-x-7 gap-y-3" style={{ animationDelay: "600ms" }}>
-              {["Same day quotes", "Fixed pricing", "Insurance work welcome", "Work guaranteed"].map((item) => (
-                <li key={item} className="flex items-center gap-2 text-sm text-white/65">
-                  <CheckCircle2 className="size-4 text-brand-500" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <span className="anim-scroll-hint pointer-events-none absolute bottom-6 left-1/2 hidden -translate-x-1/2 text-white/50 lg:block">
-          <ChevronDown className="size-7" />
-        </span>
-      </section>
+      <HeroSlider />
 
       {/* ----------------------------------------------------------- Marquee */}
       <div className="marquee-mask overflow-hidden border-y border-hairline bg-brand-600/90 py-3">
@@ -191,7 +117,7 @@ export default function HomePage() {
       </div>
 
       {/* ----------------------------------------------------------- Services */}
-      <Section>
+      <Section tone="gradient">
         <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <Reveal>
             <SectionHeading
@@ -256,7 +182,7 @@ export default function HomePage() {
       </Section>
 
       {/* ------------------------------------------------------- How it works */}
-      <Section tone="panel" className="relative isolate overflow-hidden">
+      <Section tone="texture" className="relative isolate overflow-hidden">
         <Image src={photos.sprayGun} alt="" fill sizes="100vw" className="object-cover opacity-[0.07]" />
         <div className="relative">
           <Reveal>
@@ -284,7 +210,7 @@ export default function HomePage() {
       </Section>
 
       {/* ------------------------------------------------------ Before/after */}
-      <Section>
+      <Section tone="glow">
         <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <Reveal>
             <SectionHeading eyebrow="Recent work" title="Before &amp; after" />
@@ -335,7 +261,7 @@ export default function HomePage() {
       </section>
 
       {/* ------------------------------------------------------------- Why us */}
-      <Section tone="panel">
+      <Section tone="panel2">
         <div className="grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <Reveal direction="right">
             <SectionHeading
@@ -427,7 +353,7 @@ export default function HomePage() {
       </section>
 
       {/* ------------------------------------------------------ Testimonials */}
-      <Section tone="panel">
+      <Section tone="texture">
         <Reveal>
           <SectionHeading eyebrow="Customer reviews" title="What Sydney says" align="center" />
         </Reveal>
@@ -453,7 +379,7 @@ export default function HomePage() {
       </Section>
 
       {/* --------------------------------------------------------------- FAQ */}
-      <Section>
+      <Section tone="gradient">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <Reveal direction="right">
             <SectionHeading eyebrow="Questions" title="Good to know" />

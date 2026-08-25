@@ -481,3 +481,52 @@ export const mainNav = [
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
+
+/**
+ * Home page hero rotator. Add or remove an entry and the slider adapts -
+ * three works best, four is the sensible maximum before people stop watching.
+ */
+export type HeroSlide = {
+  id: string;
+  image: string;
+  eyebrow: string;
+  /** White headline lines, followed by the red accent line. */
+  lines: string[];
+  accent: string;
+  lead: string;
+  cta: { href: string; label: string };
+  points: string[];
+};
+
+export const heroSlides: HeroSlide[] = [
+  {
+    id: "mobile",
+    image: photos.hero,
+    eyebrow: "Servicing all of Sydney",
+    lines: ["Mobile Smash", "Repairs."],
+    accent: "We Come To You.",
+    lead: "Dents, scratches, bumper damage and paintwork repaired at your home or workplace. No towing, no workshop queue, no lost day.",
+    cta: { href: "/quote", label: "Get A Free Quote" },
+    points: ["Same day quotes", "Fixed pricing", "Insurance work welcome", "Work guaranteed"],
+  },
+  {
+    id: "dents",
+    image: photos.smashRepairs,
+    eyebrow: "Dent & scratch work from $150",
+    lines: ["Dents & Scratches", "Gone In Hours."],
+    accent: "Not Days.",
+    lead: "Trolley dents, key scratches and scuffed bumper corners sorted in your driveway - usually in under three hours, and well under a typical insurance excess.",
+    cta: { href: "/services/dent-and-scratch-removal", label: "Dent & Scratch Repair" },
+    points: ["Paintless dent removal", "No claim needed", "1 - 3 hour turnaround", "Keep your no-claim bonus"],
+  },
+  {
+    id: "paint",
+    image: photos.sprayPaint,
+    eyebrow: "Computerised colour matching",
+    lines: ["Factory Colour", "Matched Paint."],
+    accent: "Sprayed On Site.",
+    lead: "An enclosed mobile booth, computerised paint mixing and two-pack automotive clear - the same finish as a workshop, in your driveway.",
+    cta: { href: "/services/spray-paint", label: "See Spray Painting" },
+    points: ["Pearls & metallics", "Blended into panels", "Single panels same day", "Force cured on site"],
+  },
+];

@@ -59,10 +59,6 @@ export const photos = {
   headlight: u("photo-1616591938558-fb03d845567b"),
 } as const;
 
-/**
- * Before / after pairs. Colour matched so each pair reads as one car.
- * PLACEHOLDER - replace with photos of your own jobs.
- */
 export const galleryPhotos = {
   bumperBefore: u("photo-1745234176689-7d1673f76df6", 1200),
   bumperAfter: u("photo-1608412217889-1ec8ac1d5878", 1200),
