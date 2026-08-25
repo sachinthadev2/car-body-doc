@@ -2,7 +2,7 @@
 
 import { MoveHorizontal } from "lucide-react";
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -10,8 +10,9 @@ import { cn } from "@/lib/utils";
  * Drag-to-reveal before/after comparison. Mouse, touch and keyboard.
  *
  * The handle position is driven by a CSS custom property written straight to
- * the DOM inside a rAF, NOT by React state - re-rendering two next/image
- * elements on every pointermove is what made this stutter on phones.
+ * the DOM, NOT by React state - re-rendering two next/image layers on every
+ * pointermove, plus a getBoundingClientRect per move, is what made this
+ * stutter on phones. Bounds are measured once per gesture instead.
  */
 export function BeforeAfter({
   before,
@@ -28,46 +29,40 @@ export function BeforeAfter({
   const containerRef = useRef<HTMLDivElement>(null);
   const rangeRef = useRef<HTMLInputElement>(null);
   const dragging = useRef(false);
-  const frame = useRef(0);
-  const pending = useRef(50);
   const hasTouched = useRef(false);
+  /** Container geometry, cached on pointerdown so each move is layout-free. */
+  const bounds = useRef({ left: 0, width: 1 });
 
-  const flush = useCallback(() => {
-    frame.current = 0;
+  const setPosition = useCallback((pct: number) => {
     const el = containerRef.current;
     if (!el) return;
-    el.style.setProperty("--pos", `${pending.current}%`);
-    // Keep the (keyboard/screen-reader) range in step without a React render.
-    if (rangeRef.current) rangeRef.current.value = String(Math.round(pending.current));
+    // Rounded so the DOM never carries float noise like 80.00000000000001%.
+    const clamped = Math.round(Math.min(100, Math.max(0, pct)) * 100) / 100;
+    // Written straight to the DOM: no React render, so dragging never
+    // re-renders the two next/image layers.
+    el.style.setProperty("--pos", `${clamped}%`);
+    // Keep the keyboard/screen-reader control in step, also render-free.
+    if (rangeRef.current) rangeRef.current.value = String(Math.round(clamped));
+    // Exactly one render, the first time, to drop the hint and stop the pulse.
+    if (!hasTouched.current) {
+      hasTouched.current = true;
+      setTouched(true);
+    }
   }, []);
-
-  const setPosition = useCallback(
-    (pct: number) => {
-      pending.current = Math.min(100, Math.max(0, pct));
-      if (!frame.current) frame.current = requestAnimationFrame(flush);
-      // One render, the first time, to drop the hint and stop the pulse.
-      if (!hasTouched.current) {
-        hasTouched.current = true;
-        setTouched(true);
-      }
-    },
-    [flush],
-  );
 
   const moveTo = useCallback(
     (clientX: number) => {
-      const el = containerRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      setPosition(((clientX - rect.left) / rect.width) * 100);
+      const { left, width } = bounds.current;
+      setPosition(((clientX - left) / width) * 100);
     },
     [setPosition],
   );
 
-  useEffect(() => {
-    return () => {
-      if (frame.current) cancelAnimationFrame(frame.current);
-    };
+  const cacheBounds = useCallback(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    bounds.current = { left: rect.left, width: rect.width || 1 };
   }, []);
 
   return (
@@ -84,8 +79,16 @@ export function BeforeAfter({
       )}
       onPointerDown={(e) => {
         dragging.current = true;
-        e.currentTarget.setPointerCapture(e.pointerId);
+        // Measure once per gesture, then move. Pointer capture is only an
+        // optimisation - if it throws (synthetic or already-released pointers)
+        // the drag must still work rather than dying before it starts.
+        cacheBounds();
         moveTo(e.clientX);
+        try {
+          e.currentTarget.setPointerCapture(e.pointerId);
+        } catch {
+          /* capture unavailable - dragging still tracks via pointermove */
+        }
       }}
       onPointerMove={(e) => {
         if (dragging.current) moveTo(e.clientX);
