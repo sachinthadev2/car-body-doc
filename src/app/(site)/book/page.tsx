@@ -5,6 +5,7 @@ import { BookingForm } from "@/components/forms/BookingForm";
 import { PageHero } from "@/components/site/PageHero";
 import { getCurrentUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { photos } from "@/lib/images";
 import { business } from "@/lib/site";
 import { formatMoney } from "@/lib/utils";
 
@@ -50,6 +51,8 @@ export default async function BookPage({
         title="Pick a day, we come to you"
         lead="Tell us where the car will be and when suits. We will confirm your slot by email, usually within a couple of hours during business hours."
         crumb={[{ href: "/book", label: "Book" }]}
+        image={photos.blackCar}
+        imageAlt="Finished car at dusk"
       />
 
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">

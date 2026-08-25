@@ -2,7 +2,7 @@
 
 Website and back office for **Car Body Doc** — mobile smash repairs across Sydney.
 
-Next.js 15 (App Router) · TypeScript · Tailwind v4 · Prisma 7 · Neon Postgres · MailerSend
+Next.js 15 (App Router) · TypeScript · Tailwind v4 · Prisma 7 · MySQL/MariaDB · MailerSend
 
 ---
 
@@ -34,7 +34,7 @@ Site: http://localhost:3000 · Admin: http://localhost:3000/admin/login
 
 | Variable | What it does |
 |---|---|
-| `DATABASE_URL` | Neon Postgres connection string |
+| `DATABASE_URL` | MySQL/MariaDB connection string |
 | `AUTH_SECRET` | Signs the session cookie. Generate with `openssl rand -base64 32` |
 | `ADMIN_EMAIL` / `ADMIN_PASSWORD` / `ADMIN_NAME` | Used by `npm run db:seed` to create or update the admin login |
 | `MAILERSEND_API_TOKEN` | MailerSend API token. **Leave blank and emails are logged to the console instead** — handy in development |
@@ -42,7 +42,7 @@ Site: http://localhost:3000 · Admin: http://localhost:3000/admin/login
 | `MAIL_ADMIN_TO` | Where new quote / booking / enquiry notifications land |
 | `NEXT_PUBLIC_SITE_URL` | Public site URL — used in emails, sitemap and metadata |
 
-> **Security:** the Neon password was shared in plain text during development. Rotate it in the Neon console before going live and update `DATABASE_URL`. `.env` is git-ignored; never commit it.
+> **Security:** a database password was shared in plain text during development. Rotate it before going live and update `DATABASE_URL`. `.env` is git-ignored; never commit it.
 
 ---
 
@@ -62,12 +62,35 @@ Guests can quote and book without an account. When someone registers with the sa
 
 Nearly all site copy lives in **`src/lib/site.ts`** — phone number, email, hours, services and prices, suburbs, FAQs, testimonials and the gallery. Change it there and it updates everywhere, including emails and structured data.
 
-**Photos.** The gallery is deliberately hardcoded (no admin screen to maintain):
+---
 
-1. Drop your images into `public/gallery/`
-2. Update the `gallery` array in `src/lib/site.ts` — each entry takes a `before`, `after`, `title`, `service` and `suburb`
+## Photography
 
-The placeholder artwork currently in `public/` (`hero.svg`, `trailer.svg`, `gallery/*.svg`) is stand-in only. Replace it with real photos — the trailer shot is the strongest trust asset you have — then point `business.heroImage` and `business.trailerImage` at the new files.
+Every photo on the site is referenced from **`src/lib/images.ts`**. Swap any entry for your own file (`"/photos/my-shot.jpg"` in `public/`) or a Cloudinary URL and it changes everywhere it is used — nothing else needs editing.
+
+The photos currently in place are Unsplash stock, used as a high-quality stand-in:
+
+| Slot | Used on |
+|---|---|
+| `hero` | Home page hero |
+| `smashRepairs`, `sprayPaint`, `buffPolish`, `dentScratch` | Service cards and each service page |
+| `sydney`, `sydneyDusk` | Coverage sections and service areas |
+| `booth`, `maskedCar`, `handsOnTools`, `detailer` | About, FAQ, contact |
+| `paintDetail`, `microfibre`, `blackCar`, `blackSedan`, `headlight` | Gallery hero, CTA bands, stats band, admin login |
+
+> **Replace the gallery before launch.** The before/after pairs in `galleryPhotos` are stock cars, colour matched so each pair reads as one vehicle — they are **not** jobs you have done. Presenting them as your own work would mislead customers. Put real job photos in `public/gallery/` and point the `gallery` array in `src/lib/site.ts` at them.
+
+Remote images are allowed from `images.unsplash.com`, `plus.unsplash.com` and `res.cloudinary.com` (see `next.config.ts`). Next.js serves them as AVIF/WebP with a 30 day cache.
+
+---
+
+## Motion
+
+Animation is plain CSS plus one small component — no animation library, so it costs almost nothing in bundle size.
+
+- `src/app/globals.css` holds the keyframes and utility classes: `.anim-in`, `.anim-ken-burns`, `.hover-lift`, `.zoom-parent`, `.sheen`, `.link-draw`, `.marquee-track`.
+- `src/components/site/Reveal.tsx` fades sections in as they scroll into view; its `CountUp` export animates the stats band.
+- Everything is disabled under `prefers-reduced-motion`, and a `<noscript>` rule in the root layout keeps the page fully visible with JavaScript turned off.
 
 ---
 
@@ -97,7 +120,7 @@ Uploads are validated (JPG/PNG/WEBP/HEIC, max 5 files, 8MB each) and written to 
 
 ## Dates
 
-Booking dates are calendar dates, not timestamps: stored in a Postgres `DATE` column as UTC midnight and always read and formatted in UTC (`src/lib/dates.ts`). This is deliberate — with local-time handling, a booking date silently shifts a day each time an admin saves it from a timezone ahead of UTC, which is exactly what Sydney is.
+Booking dates are calendar dates, not timestamps: stored in a `DATE` column as UTC midnight and always read and formatted in UTC (`src/lib/dates.ts`). This is deliberate — with local-time handling, a booking date silently shifts a day each time an admin saves it from a timezone ahead of UTC, which is exactly what Sydney is.
 
 ---
 
@@ -118,7 +141,7 @@ Booking dates are calendar dates, not timestamps: stored in a Postgres `DATE` co
 
 ## Deploying
 
-1. Rotate the Neon password and set all environment variables on the host
+1. Rotate the database password and set all environment variables on the host
 2. `npm run db:deploy` to apply migrations
 3. `npm run db:seed` once to create the admin login, then change `ADMIN_PASSWORD`
 4. Verify your sending domain in MailerSend and set the token

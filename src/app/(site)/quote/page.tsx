@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 
 import { QuoteForm } from "@/components/forms/QuoteForm";
 import { PageHero } from "@/components/site/PageHero";
+import { photos } from "@/lib/images";
 import { business, howItWorks, testimonials } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -25,6 +26,8 @@ export default async function QuotePage({
         title="Send a photo, get a fixed price"
         lead="Two minutes of your time. We look at the photos personally and come back with a firm price - usually the same day, no obligation to book."
         crumb={[{ href: "/quote", label: "Free Quote" }]}
+        image={photos.scratchedDoor}
+        imageAlt="Scratches down a car door"
       />
 
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">

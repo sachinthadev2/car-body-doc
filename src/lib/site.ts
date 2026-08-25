@@ -1,5 +1,7 @@
 import type { ServiceType } from "@/generated/prisma/enums";
 
+import { galleryPhotos, photos } from "@/lib/images";
+
 /**
  * Single source of truth for everything about the business.
  * Update the details here and they change across the whole site.
@@ -16,8 +18,8 @@ export const business = {
   addressRegion: "NSW",
   serviceRadiusKm: 50,
   /** Swap these for real photos: drop files in /public and update the paths. */
-  heroImage: "/hero.svg",
-  trailerImage: "/trailer.svg",
+  heroImage: photos.hero,
+  trailerImage: photos.maskedCar,
   hours: [
     { days: "Monday - Friday", time: "7:00am - 5:00pm" },
     { days: "Saturday", time: "8:00am - 2:00pm" },
@@ -39,6 +41,7 @@ export type Service = {
   blurb: string;
   priceFrom: string;
   turnaround: string;
+  image: string;
   intro: string;
   covers: string[];
   process: { title: string; detail: string }[];
@@ -55,6 +58,7 @@ export const services: Service[] = [
       "Bumper bars, guards, doors and quarter panels repaired and refinished on site. No tow truck, no workshop queue.",
     priceFrom: "$350",
     turnaround: "Most jobs done in 1 day",
+    image: photos.smashRepairs,
     intro:
       "Been in a knock? Most non-structural collision damage can be repaired right where your car is parked. We bring the full mobile workshop to your driveway, street or workplace car park and hand the car back the same day in most cases.",
     covers: [
@@ -91,6 +95,7 @@ export const services: Service[] = [
       "Factory paint codes matched with a computerised mixing system, sprayed in a mobile booth and blended so you cannot see the join.",
     priceFrom: "$300",
     turnaround: "Same day for single panels",
+    image: photos.sprayPaint,
     intro:
       "Faded clear coat, key marks, mismatched bumpers or a panel that has been resprayed badly by someone else - we colour match to your factory paint code and refinish the panel on site with automotive two-pack.",
     covers: [
@@ -127,6 +132,7 @@ export const services: Service[] = [
       "A proper machine cut and polish that removes swirl marks, oxidation and light scratches, then seals the paint.",
     priceFrom: "$180",
     turnaround: "2 - 4 hours",
+    image: photos.buffPolish,
     intro:
       "Paint looking flat, chalky or covered in swirls from the automatic car wash? A machine cut and polish removes the damaged top layer of clear coat and brings back the gloss - a huge difference before selling or handing back a lease car.",
     covers: [
@@ -163,6 +169,7 @@ export const services: Service[] = [
       "Small dents and scratches fixed fast and affordably - the everyday damage that is not worth an insurance claim.",
     priceFrom: "$150",
     turnaround: "1 - 3 hours",
+    image: photos.dentScratch,
     intro:
       "Shopping centre door dings, trolley dents, key scratches down the side, scuffed bumper corners. These are the jobs panel shops do not want and charge a fortune for. They are exactly what a mobile setup is built for.",
     covers: [
@@ -291,6 +298,10 @@ export const serviceAreas = [
     region: "South West Sydney",
     suburbs: ["Liverpool", "Fairfield", "Cabramatta", "Ingleburn", "Campbelltown", "Camden", "Narellan", "Casula"],
   },
+  {
+    region: "North West Sydney",
+    suburbs: ["Rouse Hill", "Kellyville", "Bella Vista", "Norwest", "Cherrybrook", "Glenwood", "Stanhope Gardens", "The Ponds"],
+  },
 ];
 
 export const allSuburbs = serviceAreas.flatMap((a) => a.suburbs).sort();
@@ -315,8 +326,8 @@ export const gallery: GalleryItem[] = [
     title: "Rear bumper scrape",
     service: "SMASH_REPAIRS",
     suburb: "Parramatta",
-    before: "/gallery/bumper-before.svg",
-    after: "/gallery/bumper-after.svg",
+    before: galleryPhotos.bumperBefore,
+    after: galleryPhotos.bumperAfter,
     detail: "Cracked and scuffed rear bumper repaired, re-textured and resprayed on site in one day.",
   },
   {
@@ -324,8 +335,8 @@ export const gallery: GalleryItem[] = [
     title: "Front guard respray",
     service: "SPRAY_PAINT",
     suburb: "Bondi",
-    before: "/gallery/guard-before.svg",
-    after: "/gallery/guard-after.svg",
+    before: galleryPhotos.guardBefore,
+    after: galleryPhotos.guardAfter,
     detail: "Sun-damaged clear coat stripped back and refinished in factory pearl white.",
   },
   {
@@ -333,8 +344,8 @@ export const gallery: GalleryItem[] = [
     title: "Key scratch down both doors",
     service: "DENT_SCRATCH",
     suburb: "Chatswood",
-    before: "/gallery/scratch-before.svg",
-    after: "/gallery/scratch-after.svg",
+    before: galleryPhotos.scratchBefore,
+    after: galleryPhotos.scratchAfter,
     detail: "Deep key scratch filled, colour matched and blended across two doors.",
   },
   {
@@ -342,8 +353,8 @@ export const gallery: GalleryItem[] = [
     title: "Swirled black paint",
     service: "BUFF_POLISH",
     suburb: "Liverpool",
-    before: "/gallery/polish-before.svg",
-    after: "/gallery/polish-after.svg",
+    before: galleryPhotos.polishBefore,
+    after: galleryPhotos.polishAfter,
     detail: "Two-stage machine cut and polish removed years of car wash swirls, then sealed the paint.",
   },
   {
@@ -351,8 +362,8 @@ export const gallery: GalleryItem[] = [
     title: "Trolley dent in door",
     service: "DENT_SCRATCH",
     suburb: "Hurstville",
-    before: "/gallery/dent-before.svg",
-    after: "/gallery/dent-after.svg",
+    before: galleryPhotos.dentBefore,
+    after: galleryPhotos.dentAfter,
     detail: "Paintless dent removal on a shopping centre trolley dent - original paint untouched.",
   },
   {
@@ -360,8 +371,8 @@ export const gallery: GalleryItem[] = [
     title: "Corner park collision",
     service: "SMASH_REPAIRS",
     suburb: "Penrith",
-    before: "/gallery/collision-before.svg",
-    after: "/gallery/collision-after.svg",
+    before: galleryPhotos.collisionBefore,
+    after: galleryPhotos.collisionAfter,
     detail: "Front corner panel reshaped, filled and refinished at the customer workplace.",
   },
 ];

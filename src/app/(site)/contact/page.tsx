@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { PageHero } from "@/components/site/PageHero";
 import { ButtonLink } from "@/components/ui/Button";
+import { photos } from "@/lib/images";
 import { business, serviceAreas } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -19,6 +20,8 @@ export default function ContactPage() {
         title="Get in touch"
         lead="Quickest way to a price is the quote form with photos. For anything else, call us or drop a message below."
         crumb={[{ href: "/contact", label: "Contact" }]}
+        image={photos.detailer}
+        imageAlt="Technician at work"
       />
 
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">

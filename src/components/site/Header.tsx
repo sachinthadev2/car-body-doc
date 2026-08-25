@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 export function Logo({ compact = false }: { compact?: boolean }) {
   return (
     <Link href="/" className="group flex items-center gap-3" aria-label={`${business.name} home`}>
-      <span className="relative flex size-10 items-center justify-center bg-brand-500 text-white">
+      <span className="relative flex size-10 items-center justify-center bg-brand-500 text-white transition-transform duration-300 group-hover:scale-105">
         <span className="font-display text-xl font-bold leading-none">CB</span>
         <span className="absolute -bottom-px left-0 h-1 w-full bg-black/30" />
       </span>
@@ -48,10 +48,17 @@ export function Header({ user }: { user: { name: string; role: string } | null }
     <header
       className={cn(
         "sticky top-0 z-50 border-b transition-colors duration-200",
-        scrolled ? "border-hairline bg-ink/95 backdrop-blur" : "border-transparent bg-ink/80 backdrop-blur-sm",
+        scrolled
+          ? "border-hairline bg-ink/95 shadow-lg shadow-black/40 backdrop-blur"
+          : "border-transparent bg-gradient-to-b from-ink/90 to-transparent backdrop-blur-sm",
       )}
     >
-      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
+      <div
+        className={cn(
+          "mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 transition-all duration-300 sm:px-6 lg:px-8",
+          scrolled ? "h-[68px]" : "h-[84px]",
+        )}
+      >
         <Logo />
 
         <nav className="hidden items-center gap-7 lg:flex">
@@ -61,6 +68,7 @@ export function Header({ user }: { user: { name: string; role: string } | null }
               href={item.href}
               className={cn(
                 "font-display text-[15px] uppercase tracking-wide transition-colors",
+                "link-draw",
                 pathname.startsWith(item.href) ? "text-brand-500" : "text-white/75 hover:text-white",
               )}
             >
@@ -84,7 +92,7 @@ export function Header({ user }: { user: { name: string; role: string } | null }
           >
             <User className="size-4" />
           </Link>
-          <ButtonLink href="/quote" size="sm">
+          <ButtonLink href="/quote" size="sm" className="sheen">
             Free Quote
           </ButtonLink>
         </div>
@@ -101,7 +109,7 @@ export function Header({ user }: { user: { name: string; role: string } | null }
       </div>
 
       {open && (
-        <div className="border-t border-hairline bg-panel lg:hidden">
+        <div className="anim-in border-t border-hairline bg-panel lg:hidden" style={{ animationDuration: "350ms" }}>
           <nav className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
             {mainNav.map((item) => (
               <Link

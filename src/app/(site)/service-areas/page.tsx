@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 
 import { CtaBand } from "@/components/site/CtaBand";
 import { PageHero } from "@/components/site/PageHero";
+import { Reveal } from "@/components/site/Reveal";
 import { Section, SectionHeading } from "@/components/site/Section";
+import { photos } from "@/lib/images";
 import { business, serviceAreas } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -20,12 +22,15 @@ export default function ServiceAreasPage() {
         title="Mobile smash repairs across Sydney"
         lead={`We travel roughly ${business.serviceRadiusKm}km out from the city in every direction. Home, work, fleet yard or apartment car park - if we can park next to the car, we can repair it.`}
         crumb={[{ href: "/service-areas", label: "Service Areas" }]}
+        image={photos.sydney}
+        imageAlt="Sydney harbour skyline"
       />
 
       <Section>
         <div className="grid gap-px bg-hairline lg:grid-cols-2">
-          {serviceAreas.map((area) => (
-            <div key={area.region} className="bg-panel p-7 lg:p-9">
+          {serviceAreas.map((area, i) => (
+            <Reveal key={area.region} delay={(i % 2) * 100} direction="fade">
+            <div className="h-full bg-panel p-7 transition-colors duration-300 hover:bg-panel-2 lg:p-9">
               <div className="flex items-center gap-2.5">
                 <MapPin className="size-5 text-brand-500" />
                 <h2 className="display text-2xl text-white">{area.region}</h2>
@@ -41,6 +46,7 @@ export default function ServiceAreasPage() {
                 ))}
               </ul>
             </div>
+            </Reveal>
           ))}
         </div>
       </Section>
@@ -51,14 +57,14 @@ export default function ServiceAreasPage() {
             <SectionHeading eyebrow="Travel" title="How call-outs work" />
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:col-span-2">
-            <div className="border border-hairline bg-panel-2 p-6">
+            <div className="hover-lift border border-hairline bg-panel-2 p-6">
               <Navigation className="size-6 text-brand-500" />
               <h3 className="display mt-4 text-xl text-white">No call-out fee</h3>
               <p className="mt-2 text-[14px] leading-relaxed text-white/55">
                 Travel inside our standard Sydney coverage is included in the quoted price. What we quote is what you pay.
               </p>
             </div>
-            <div className="border border-hairline bg-panel-2 p-6">
+            <div className="hover-lift border border-hairline bg-panel-2 p-6">
               <Car className="size-6 text-brand-500" />
               <h3 className="display mt-4 text-xl text-white">Outside the radius?</h3>
               <p className="mt-2 text-[14px] leading-relaxed text-white/55">
@@ -66,7 +72,7 @@ export default function ServiceAreasPage() {
                 for bigger jobs or a few cars in one spot.
               </p>
             </div>
-            <div className="border border-hairline bg-panel-2 p-6">
+            <div className="hover-lift border border-hairline bg-panel-2 p-6">
               <MapPin className="size-6 text-brand-500" />
               <h3 className="display mt-4 text-xl text-white">Fleets and dealers</h3>
               <p className="mt-2 text-[14px] leading-relaxed text-white/55">
@@ -74,7 +80,7 @@ export default function ServiceAreasPage() {
                 card.
               </p>
             </div>
-            <div className="border border-hairline bg-panel-2 p-6">
+            <div className="hover-lift border border-hairline bg-panel-2 p-6">
               <Navigation className="size-6 text-brand-500" />
               <h3 className="display mt-4 text-xl text-white">Apartment buildings</h3>
               <p className="mt-2 text-[14px] leading-relaxed text-white/55">
@@ -86,7 +92,11 @@ export default function ServiceAreasPage() {
         </div>
       </Section>
 
-      <CtaBand title="Are we in your area?" lead="Tell us your suburb and we will confirm straight away." />
+      <CtaBand
+        title="Are we in your area?"
+        lead="Tell us your suburb and we will confirm straight away."
+        image={photos.sydneyDusk}
+      />
     </>
   );
 }

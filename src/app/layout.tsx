@@ -49,6 +49,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-AU" className={`${display.variable} ${body.variable}`}>
+      <head>
+        {/*
+          Scroll-reveal starts elements at opacity 0 and JavaScript fades them in.
+          With JavaScript off that would hide the page, so undo it here.
+        */}
+        <noscript>
+          <style>{`[data-reveal],.anim-in,.anim-in-fade{opacity:1!important;animation:none!important;transform:none!important}`}</style>
+        </noscript>
+      </head>
       <body className="font-sans antialiased">{children}</body>
     </html>
   );

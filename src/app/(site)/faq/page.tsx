@@ -4,6 +4,7 @@ import { CtaBand } from "@/components/site/CtaBand";
 import { FaqAccordion } from "@/components/site/FaqAccordion";
 import { PageHero } from "@/components/site/PageHero";
 import { Section } from "@/components/site/Section";
+import { photos } from "@/lib/images";
 import { faqs } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -34,6 +35,8 @@ export default function FaqPage() {
         title="Questions, answered"
         lead="The things people ask us most. If yours is not here, call us - we would rather talk it through than have you guessing."
         crumb={[{ href: "/faq", label: "FAQ" }]}
+        image={photos.booth}
+        imageAlt="Mobile spray booth"
       />
 
       <Section>
@@ -47,7 +50,11 @@ export default function FaqPage() {
         </div>
       </Section>
 
-      <CtaBand title="Still not sure?" lead="Send a photo through and we will tell you exactly what your car needs." />
+      <CtaBand
+        title="Still not sure?"
+        lead="Send a photo through and we will tell you exactly what your car needs."
+        image={photos.sprayPaint}
+      />
     </>
   );
 }

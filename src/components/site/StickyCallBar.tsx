@@ -16,7 +16,7 @@ export function StickyCallBar() {
       </a>
       <Link
         href="/quote"
-        className="flex items-center justify-center gap-2 bg-brand-500 py-3.5 font-display text-base uppercase tracking-wide text-white"
+        className="anim-pulse-ring flex items-center justify-center gap-2 bg-brand-500 py-3.5 font-display text-base uppercase tracking-wide text-white"
       >
         <MessageSquareQuote className="size-4" />
         Free Quote

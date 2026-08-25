@@ -87,7 +87,7 @@ body {
 .hero-vignette {
   background:
     radial-gradient(120% 90% at 80% 10%, rgba(225, 20, 20, 0.22), transparent 55%),
-    linear-gradient(to bottom, rgba(5, 5, 5, 0.55), rgba(5, 5, 5, 0.92) 65%, var(--color-ink));
+    linear-gradient(to bottom, rgba(5, 5, 5, 0.35), rgba(5, 5, 5, 0.8) 65%, var(--color-ink));
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -96,8 +96,211 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
+/* Deeper vignette for photo-backed section headers */
+.photo-scrim {
+  background:
+    linear-gradient(to right, rgba(5, 5, 5, 0.96) 5%, rgba(5, 5, 5, 0.74) 45%, rgba(5, 5, 5, 0.38)),
+    linear-gradient(to top, var(--color-ink), transparent 68%);
+}
+
+.photo-scrim-soft {
+  background: linear-gradient(to top, rgba(5, 5, 5, 0.95) 5%, rgba(5, 5, 5, 0.35) 60%, rgba(5, 5, 5, 0.6));
+}
+
+/* ==========================================================================
+   Motion
+   ========================================================================== */
+
+@keyframes cbd-fade-up {
+  from { opacity: 0; transform: translate3d(0, 26px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes cbd-fade-down {
+  from { opacity: 0; transform: translate3d(0, -20px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes cbd-fade-left {
+  from { opacity: 0; transform: translate3d(34px, 0, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes cbd-fade-right {
+  from { opacity: 0; transform: translate3d(-34px, 0, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes cbd-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes cbd-zoom-in {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes cbd-clip-up {
+  from { opacity: 0; clip-path: inset(100% 0 0 0); transform: translate3d(0, 12px, 0); }
+  to   { opacity: 1; clip-path: inset(0 0 0 0); transform: none; }
+}
+@keyframes cbd-ken-burns {
+  from { transform: scale(1.06) translate3d(0, 0, 0); }
+  to   { transform: scale(1.16) translate3d(-1.2%, -1.5%, 0); }
+}
+@keyframes cbd-sheen {
+  from { transform: translateX(-120%) skewX(-18deg); }
+  to   { transform: translateX(320%) skewX(-18deg); }
+}
+@keyframes cbd-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes cbd-scroll-hint {
+  0%, 100% { transform: translateY(0); opacity: 0.35; }
+  50%      { transform: translateY(8px); opacity: 1; }
+}
+@keyframes cbd-pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(225, 20, 20, 0.5); }
+  70%  { box-shadow: 0 0 0 14px rgba(225, 20, 20, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(225, 20, 20, 0); }
+}
+@keyframes cbd-slider-hint {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50%      { transform: translate(-50%, -50%) scale(1.12); }
+}
+
+/* --- Scroll reveal -------------------------------------------------------
+   Elements start hidden and animate once when they enter the viewport.
+   `.is-visible` is added by the Reveal component. */
+[data-reveal] {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+[data-reveal].is-visible {
+  animation: cbd-fade-up 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+[data-reveal="down"].is-visible  { animation-name: cbd-fade-down; }
+[data-reveal="left"].is-visible  { animation-name: cbd-fade-left; }
+[data-reveal="right"].is-visible { animation-name: cbd-fade-right; }
+[data-reveal="fade"].is-visible  { animation-name: cbd-fade; }
+[data-reveal="zoom"].is-visible  { animation-name: cbd-zoom-in; }
+[data-reveal="clip"].is-visible  { animation-name: cbd-clip-up; animation-duration: 0.9s; }
+
+/* Hero copy animates immediately on load rather than on scroll. */
+.anim-in {
+  animation: cbd-fade-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.anim-in-fade {
+  animation: cbd-fade 1.1s ease-out both;
+}
+
+/* Slow drift on hero photography. */
+.anim-ken-burns {
+  animation: cbd-ken-burns 22s ease-in-out infinite alternate;
+}
+
+.anim-scroll-hint {
+  animation: cbd-scroll-hint 2s ease-in-out infinite;
+}
+
+.anim-pulse-ring {
+  animation: cbd-pulse-ring 2.4s ease-out infinite;
+}
+
+.anim-slider-hint {
+  animation: cbd-slider-hint 2.6s ease-in-out infinite;
+}
+
+/* --- Hover behaviour ----------------------------------------------------- */
+
+/* Card lift */
+.hover-lift {
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease,
+    border-color 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 45px -22px rgba(0, 0, 0, 0.9);
+}
+
+/* Slow zoom on any image inside a hovered card */
+.zoom-parent img {
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.zoom-parent:hover img {
+  transform: scale(1.07);
+}
+
+/* Light sweep across buttons and cards */
+.sheen {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 45%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  transform: translateX(-120%) skewX(-18deg);
+  pointer-events: none;
+  z-index: 1;
+}
+.sheen:hover::after {
+  animation: cbd-sheen 0.9s ease-out;
+}
+
+/* Underline that draws in from the left */
+.link-draw {
+  position: relative;
+}
+.link-draw::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 2px;
+  width: 100%;
+  background: var(--color-brand-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-draw:hover::after {
+  transform: scaleX(1);
+}
+
+/* Infinite ticker */
+.marquee-track {
+  animation: cbd-marquee 38s linear infinite;
+}
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  /* Everything resolves to its final state - no movement at all. */
+  [data-reveal],
+  [data-reveal].is-visible,
+  .anim-in,
+  .anim-in-fade {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+  .anim-ken-burns,
+  .anim-scroll-hint,
+  .anim-pulse-ring,
+  .anim-slider-hint,
+  .marquee-track,
+  .sheen:hover::after {
+    animation: none !important;
+  }
+  .hover-lift:hover,
+  .zoom-parent:hover img {
+    transform: none !important;
   }
 }

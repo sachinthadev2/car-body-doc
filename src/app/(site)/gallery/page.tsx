@@ -4,6 +4,7 @@ import { CtaBand } from "@/components/site/CtaBand";
 import { GalleryGrid } from "@/components/site/GalleryGrid";
 import { PageHero } from "@/components/site/PageHero";
 import { Section } from "@/components/site/Section";
+import { photos } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Before & After Gallery",
@@ -19,13 +20,19 @@ export default function GalleryPage() {
         title="Before &amp; after"
         lead="Every one of these was repaired on site - in a driveway, a work car park or on the street. Drag the slider to see the difference."
         crumb={[{ href: "/gallery", label: "Gallery" }]}
+        image={photos.paintDetail}
+        imageAlt="Close up of a freshly finished panel"
       />
 
       <Section>
         <GalleryGrid />
       </Section>
 
-      <CtaBand title="Want yours to look like that?" lead="Send a photo of the damage and we will tell you exactly what it takes." />
+      <CtaBand
+        title="Want yours to look like that?"
+        lead="Send a photo of the damage and we will tell you exactly what it takes."
+        image={photos.blackCar}
+      />
     </>
   );
 }
