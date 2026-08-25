@@ -74,7 +74,7 @@ export function ChatWidget() {
           role="dialog"
           aria-label="Chat with Car Body Doc"
           data-lenis-prevent
-          className="anim-in fixed bottom-36 right-4 z-50 flex max-h-[70vh] w-[calc(100vw-2rem)] max-w-sm flex-col overflow-hidden rounded-2xl border border-hairline bg-panel shadow-2xl shadow-black/70 sm:right-5 lg:bottom-24 lg:right-7"
+          className="anim-in fixed bottom-[calc(1rem+var(--callbar-h)+4.5rem)] right-4 z-50 flex max-h-[calc(100dvh-var(--header-h)-var(--callbar-h)-7rem)] w-[calc(100vw-2rem)] max-w-sm flex-col overflow-hidden rounded-2xl border border-hairline bg-panel shadow-2xl shadow-black/70 sm:right-5 lg:bottom-24 lg:right-7"
           style={{ animationDuration: "260ms" }}
         >
           {/* Header */}
@@ -97,8 +97,10 @@ export function ChatWidget() {
             </button>
           </div>
 
-          {/* Conversation */}
-          <div ref={scrollRef} className="flex-1 space-y-4 overflow-y-auto p-4">
+          {/* Conversation + form share one scroll region, so the whole thing is
+              reachable once the panel hits its height cap. */}
+          <div ref={scrollRef} className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+          <div className="space-y-4 p-4">
             <Bubble>
               G&rsquo;day! Welcome to <strong className="text-white">{business.name}</strong> - mobile smash repairs
               across {business.baseCity}. What can we help you with today?
@@ -184,6 +186,7 @@ export function ChatWidget() {
               </p>
             </form>
           )}
+          </div>
 
           {/* Footer shortcuts */}
           <div className="grid grid-cols-2 gap-px border-t border-hairline bg-hairline">

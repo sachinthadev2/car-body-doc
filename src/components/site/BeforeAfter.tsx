@@ -69,10 +69,11 @@ export function BeforeAfter({
     <div
       ref={containerRef}
       // pan-y lets the page still scroll vertically over the image, while
-      // horizontal drags belong to us instead of fighting the browser.
+      // horizontal drags belong to us. NOTE: deliberately no data-lenis-prevent -
+      // that is for elements with their own scrollbar, and it applies
+      // overscroll-behavior:contain, which on a non-scrollable element stops the
+      // swipe chaining to the page and makes the whole section feel stuck.
       style={{ ["--pos" as string]: "50%", touchAction: "pan-y" }}
-      // Lenis handles touch for the whole page; it must keep its hands off here.
-      data-lenis-prevent
       className={cn(
         "group relative aspect-[4/3] w-full cursor-ew-resize touch-pan-y select-none overflow-hidden bg-panel-2",
         className,
