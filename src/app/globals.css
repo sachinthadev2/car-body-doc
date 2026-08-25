@@ -20,7 +20,8 @@
 
 :root {
   color-scheme: dark;
-  /* Header height. The home hero subtracts this to fill exactly one screen. */
+  /* Header content height. The home hero subtracts this PLUS the header's 1px
+     bottom border to fill exactly one screen with no leftover scroll. */
   --header-h: 84px;
 }
 

@@ -50,8 +50,7 @@ export function PageHero({
 
       <div
         className={cn(
-          "relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8",
-          image && "py-20 sm:py-32",
+          "relative mx-auto max-w-7xl px-4 py-[clamp(2.25rem,6.5vh,6rem)] sm:px-6 lg:px-8",
           align === "center" && "text-center",
         )}
       >
@@ -59,7 +58,7 @@ export function PageHero({
           <nav
             aria-label="Breadcrumb"
             className={cn(
-              "anim-in mb-5 flex flex-wrap items-center gap-2 text-sm text-white/45",
+              "anim-in mb-4 flex flex-wrap items-center gap-2 text-sm text-white/45",
               align === "center" && "justify-center",
             )}
           >
@@ -85,7 +84,7 @@ export function PageHero({
 
         <h1
           className={cn(
-            "display anim-in max-w-3xl text-4xl text-white sm:text-5xl lg:text-6xl",
+            "display anim-in max-w-3xl text-[max(1.9rem,min(8.5vw,5.2vh+1.1vw,3.9rem))] text-white",
             align === "center" && "mx-auto",
           )}
           style={{ animationDelay: "150ms" }}
@@ -96,7 +95,7 @@ export function PageHero({
         {lead ? (
           <p
             className={cn(
-              "anim-in mt-6 max-w-2xl text-lg leading-relaxed text-white/65",
+              "anim-in mt-5 max-w-2xl text-[clamp(0.95rem,1.85vh,1.1rem)] leading-relaxed text-white/65",
               align === "center" && "mx-auto",
             )}
             style={{ animationDelay: "240ms" }}
@@ -106,7 +105,7 @@ export function PageHero({
         ) : null}
 
         {children ? (
-          <div className="anim-in mt-9" style={{ animationDelay: "330ms" }}>
+          <div className="anim-in mt-7" style={{ animationDelay: "330ms" }}>
             {children}
           </div>
         ) : null}

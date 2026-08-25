@@ -47,7 +47,7 @@ export function HeroSlider() {
 
   return (
     <section
-      className="relative isolate flex h-[calc(100dvh-var(--header-h))] min-h-[540px] items-center overflow-hidden"
+      className="relative isolate flex h-[calc(100dvh-var(--header-h)-1px)] min-h-[540px] items-center overflow-hidden"
       aria-roledescription="carousel"
       aria-label="Car Body Doc services"
       onMouseEnter={() => setPaused(true)}
@@ -86,7 +86,7 @@ export function HeroSlider() {
         their links can't be tabbed to, and only the active headline is an <h1>
         so the page still has exactly one.
       */}
-      <div className="relative mx-auto w-full max-w-7xl px-4 pb-24 pt-4 sm:px-6 sm:pb-28 sm:pt-6 lg:px-8">
+      <div className="relative mx-auto w-full max-w-7xl px-4 pb-[clamp(3.25rem,9vh,6.5rem)] pt-2 sm:px-6 sm:pt-4 lg:px-8">
         <div className="grid">
           {heroSlides.map((item, i) => {
             const active = i === index;
@@ -119,7 +119,7 @@ export function HeroSlider() {
                   {item.eyebrow}
                 </p>
 
-                <Heading className="display mt-5 text-[max(2.25rem,min(13vw,6.8vh+1.2vw,5.5rem))] leading-[0.88] text-white">
+                <Heading className="display mt-5 text-[max(2.25rem,min(13vw,6.2vh+1.2vw,5.5rem))] leading-[0.88] text-white">
                   {item.lines.map((line, l) => (
                     <span key={line} {...anim(140 + l * 90)} className={cn(anim(0).className, "block")}>
                       {line}
