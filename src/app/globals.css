@@ -20,6 +20,8 @@
 
 :root {
   color-scheme: dark;
+  /* Header height. The home hero subtracts this to fill exactly one screen. */
+  --header-h: 84px;
 }
 
 html {

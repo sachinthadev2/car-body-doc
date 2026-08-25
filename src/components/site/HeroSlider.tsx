@@ -47,7 +47,7 @@ export function HeroSlider() {
 
   return (
     <section
-      className="relative isolate flex min-h-[88vh] items-center overflow-hidden"
+      className="relative isolate flex h-[calc(100dvh-var(--header-h))] min-h-[540px] items-center overflow-hidden"
       aria-roledescription="carousel"
       aria-label="Car Body Doc services"
       onMouseEnter={() => setPaused(true)}
@@ -119,7 +119,7 @@ export function HeroSlider() {
                   {item.eyebrow}
                 </p>
 
-                <Heading className="display mt-6 text-[13vw] leading-[0.88] text-white sm:text-6xl lg:text-7xl xl:text-8xl">
+                <Heading className="display mt-5 text-[max(2.25rem,min(13vw,6.8vh+1.2vw,5.5rem))] leading-[0.88] text-white">
                   {item.lines.map((line, l) => (
                     <span key={line} {...anim(140 + l * 90)} className={cn(anim(0).className, "block")}>
                       {line}
@@ -133,11 +133,11 @@ export function HeroSlider() {
                   </span>
                 </Heading>
 
-                <p {...anim(420)} className={cn(anim(0).className, "mt-7 max-w-xl text-lg leading-relaxed text-white/75")}>
+                <p {...anim(420)} className={cn(anim(0).className, "mt-5 max-w-xl text-[clamp(0.95rem,1.9vh,1.15rem)] leading-relaxed text-white/75")}>
                   {item.lead}
                 </p>
 
-                <div {...anim(510)} className={cn(anim(0).className, "mt-9 flex flex-col gap-3 sm:flex-row")}>
+                <div {...anim(510)} className={cn(anim(0).className, "mt-7 flex flex-col gap-3 sm:flex-row")}>
                   <ButtonLink href={item.cta.href} size="lg" className="sheen group" tabIndex={active ? undefined : -1}>
                     {item.cta.label}
                     <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -152,7 +152,7 @@ export function HeroSlider() {
                   </a>
                 </div>
 
-                <ul {...anim(600)} className={cn(anim(0).className, "mt-10 flex flex-wrap gap-x-7 gap-y-3")}>
+                <ul {...anim(600)} className={cn(anim(0).className, "mt-7 flex flex-wrap gap-x-6 gap-y-2.5")}>
                   {item.points.map((point) => (
                     <li key={point} className="flex items-center gap-2 text-sm text-white/65">
                       <CheckCircle2 className="size-4 text-brand-500" />

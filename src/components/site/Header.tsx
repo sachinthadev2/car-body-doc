@@ -76,7 +76,7 @@ export function Header({ user }: { user: { name: string; role: string } | null }
         <div
           className={cn(
             "mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 transition-all duration-300 sm:px-6 lg:px-8",
-            scrolled ? "h-[68px]" : "h-[84px]",
+            scrolled ? "h-[68px]" : "h-[var(--header-h)]",
           )}
         >
           <Logo />
