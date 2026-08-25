@@ -42,8 +42,13 @@ export const metadata: Metadata = {
     description:
       "We come to you anywhere in Sydney. Smash repairs, spray paint, buff and polish, dent and scratch removal. Free photo quotes, fixed prices.",
     url: siteUrl,
+    images: [{ url: "/carbodydoclogo.webp" }],
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: "/carbodydoclogo.webp",
+    apple: "/carbodydoclogo.webp",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

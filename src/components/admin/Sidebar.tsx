@@ -37,8 +37,8 @@ export function Sidebar({
   return (
     <aside className="flex flex-col border-b border-hairline bg-panel lg:h-screen lg:w-64 lg:shrink-0 lg:border-b-0 lg:border-r">
       <div className="border-b border-hairline p-5">
-        <Link href="/admin" className="display text-xl text-white">
-          Car Body <span className="text-brand-500">Doc</span>
+        <Link href="/admin" className="flex items-center">
+          <img src="/carbodydoclogo.webp" alt="Car Body Doc Logo" className="h-10 w-auto object-contain" />
         </Link>
         <p className="mt-0.5 font-display text-[10px] uppercase tracking-[0.25em] text-white/35">Admin panel</p>
       </div>

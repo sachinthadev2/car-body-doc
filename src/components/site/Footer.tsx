@@ -51,13 +51,8 @@ export function Footer() {
         <div className="grid gap-12 py-14 lg:grid-cols-[1.5fr_1fr_1fr_1.3fr]">
           {/* Brand */}
           <Reveal>
-            <Link href="/" className="group flex items-center gap-3">
-              <span className="flex size-10 items-center justify-center bg-brand-500 font-display text-xl font-bold leading-none text-white transition-transform duration-300 group-hover:scale-105">
-                CB
-              </span>
-              <span className="display text-2xl text-white">
-                Car Body <span className="text-brand-500">Doc</span>
-              </span>
+            <Link href="/" className="group flex items-center">
+              <img src="/carbodydoclogo.webp" alt="Car Body Doc Logo" className="h-28 sm:h-40 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
             </Link>
 
             <p className="mt-6 max-w-sm text-base leading-relaxed text-white/55">

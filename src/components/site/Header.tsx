@@ -12,20 +12,7 @@ import { cn } from "@/lib/utils";
 export function Logo({ compact = false }: { compact?: boolean }) {
   return (
     <Link href="/" className="group flex items-center gap-3" aria-label={`${business.name} home`}>
-      <span className="relative flex size-10 items-center justify-center bg-brand-500 text-white transition-transform duration-300 group-hover:scale-105">
-        <span className="font-display text-xl font-bold leading-none">CB</span>
-        <span className="absolute -bottom-px left-0 h-1 w-full bg-black/30" />
-      </span>
-      <span className="leading-none">
-        <span className="display block text-xl text-white sm:text-2xl">
-          Car Body <span className="text-brand-500">Doc</span>
-        </span>
-        {!compact && (
-          <span className="mt-0.5 block font-display text-[10px] uppercase tracking-[0.28em] text-white/45">
-            {business.promise}
-          </span>
-        )}
-      </span>
+      <img src="/carbodydoclogo.webp" alt="Car Body Doc Logo" className="h-12 sm:h-15 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
     </Link>
   );
 }
